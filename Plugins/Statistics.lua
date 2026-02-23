@@ -49,7 +49,7 @@ local dontPrint = { -- Don't print a warning message for these difficulties
 }
 
 --[[
-11.2.0
+12.0.1
 1. Normal
 2. Heroic
 3. 10 Player
@@ -100,8 +100,9 @@ local dontPrint = { -- Don't print a warning message for these difficulties
 230. Heroic
 232. Event
 236. Lorewalking
+241. Lorewalking
 
-5.5.0
+5.5.3
 1. Normal
 2. Heroic
 3. 10 Player
@@ -121,6 +122,7 @@ local dontPrint = { -- Don't print a warning message for these difficulties
 176. 25 Player
 193. 10 Player (Heroic)
 194. 25 Player (Heroic)
+237. Celestial
 
 4.4.2
 1. Normal
@@ -139,7 +141,19 @@ local dontPrint = { -- Don't print a warning message for these difficulties
 194. 25 Player (Heroic)
 244. Raid: 25 Titan-Reforged
 
-1.15.7
+2.5.5
+1. Normal
+2. Heroic
+3. 10 Player
+4. 25 Player
+9. 40 Player
+148. 20 Player
+173. Normal
+174. Heroic
+175. 10 Player
+176. 25 Player
+
+1.15.8
 1. Normal
 9. 40 Player
 148. 20 Player
@@ -465,7 +479,7 @@ function plugin:BigWigs_OnBossWin(event, module)
 				sDB.bestDate = date("%Y/%m/%d")
 			end
 		elseif IsInRaid() and not dontPrint[diff] then
-			BigWigs:Error("Tell the devs, the stats for this boss were not recorded because a new difficulty id was found: "..diff)
+			BigWigs:Error(("Tell the devs! The stats for this boss were not recorded: ID#%s#Instance#%s#Journal#%s"):format(diff, module:GetZoneID(), journalID))
 		end
 	end
 
