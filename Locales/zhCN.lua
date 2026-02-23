@@ -1118,13 +1118,11 @@ L.enableBlizzTimelineDesc = "在暴雪时间轴上显示所有首领战斗计时
 L.enableBlizzWarnings = "启用暴雪首领预警"
 L.enableBlizzWarningsDesc = "启用暴雪首领预警时，建议同时关闭“使用 BigWigs 信息替换暴雪内置首领预警”功能，否则所有信息将会重复显示。"
 L.show_bars = "显示计时条来自"
-L.custom_timers = "自定义计时器"
-L.custom_timers_desc = "BigWigs 将用更优化的计时器（如果可用）替换暴雪内置的首领计时器，否则将继续使用暴雪内置的计时器。"
-L.blizzard_timers = "暴雪内置计时器"
-L.blizzard_timers_desc = "将暴雪内置的首领计时器显示为 BigWigs 计时条。"
-L.both_timers = "同时显示"
-L.both_timers_desc = "同时显示暴雪内置的计时器和自定义计时器。|cffff4411用于测试或尚未更新的首领战。|r"
-L.disabled_timers_desc = "BigWigs 将不显示任何计时条。"
+
+--L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
+--L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
+--L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"
+--L.developerMode = "Developer Mode"
 
 -----------------------------------------------------------------------
 -- Victory.lua

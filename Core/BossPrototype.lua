@@ -242,7 +242,7 @@ function boss:ShouldShowBars()
 	if self.useCustomTimers and plugins.Timeline then
 		-- XXX should probably add an API in Timeline instead of accessing the db directly >.> like :CanShowCustom()
 		local timelineDB = plugins.Timeline.db.profile
-		return timelineDB.show_bars == "custom" or timelineDB.show_bars == "both"
+		return timelineDB.timer_mode == "enhanced" or timelineDB.timer_mode == "dev"
 	end
 end
 
@@ -252,7 +252,7 @@ function boss:ShouldShowBothBars()
 	if self.useCustomTimers and plugins.Timeline then
 		-- XXX should probably add an API in Timeline instead of accessing the db directly >.> like :CanShowCustom()
 		local timelineDB = plugins.Timeline.db.profile
-		return timelineDB.show_bars == "both"
+		return timelineDB.timer_mode == "dev"
 	end
 end
 

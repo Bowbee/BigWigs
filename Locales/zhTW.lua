@@ -1118,13 +1118,11 @@ L.enableBlizzTimelineDesc = "在暴雪內建的首領技能時間軸上顯示所
 L.enableBlizzWarnings = "啟用暴雪的首領警告"
 L.enableBlizzWarningsDesc = "若啟用暴雪內建的首領警告，建議關閉「用 BigWigs 訊息取代暴雪內建首領警告」功能，以免出現重複警報。"
 L.show_bars = "顯示來源"
---L.custom_timers = "Custom Timers"
---L.custom_timers_desc = "BigWigs will replace the Blizzard encounter timers with improved timers if available, otherwise Blizzard timers will be used."
---L.blizzard_timers = "Blizzard Timers"
---L.blizzard_timers_desc = "Show Blizzard encounter timers as BigWigs bars."
---L.both_timers = "Both"
---L.both_timers_desc = "Show Blizzard timers and Custom timers at the same time. |cffff4411For testing and not-yet-updated encounters.|r"
-L.disabled_timers_desc = "BigWigs 將不顯示任何計時條。"
+
+--L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
+--L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
+--L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"
+--L.developerMode = "Developer Mode"
 
 -----------------------------------------------------------------------
 -- Victory.lua

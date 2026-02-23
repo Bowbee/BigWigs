@@ -1118,13 +1118,11 @@ L.enableBlizzTimelineDesc = "Diese Option zeigt alle Boss Timer in der Blizzard 
 L.enableBlizzWarnings = "Blizz Bosswarnungen aktivieren"
 L.enableBlizzWarningsDesc = "Beim Aktivieren der Blizzard Bosswarnungen sollte die Option zur Anzeige als BigWigs Nachrichten deaktiviert werden, da diese ansonsten doppelt angezeigt werden."
 L.show_bars = "Zeige Leisten von"
-L.custom_timers = "Angepassten Timern"
-L.custom_timers_desc = "BigWigs wird, wenn verfügbar, die Blizzard Bosstimer mit verbesserten Timern ersetzen. Andernfalls werden die Blizzard Timer genutzt."
-L.blizzard_timers = "Blizzard Timern"
-L.blizzard_timers_desc = "Zeigt die Blizzard Bosstimer als BigWigs Leisten."
-L.both_timers = "Beiden"
-L.both_timers_desc = "Zeigt sowohl Blizzard Timer als auch Angepasste Timer. |cffff4411Zum Testen und für noch nicht aktualisierte Bossbegegnungen.|r"
-L.disabled_timers_desc = "BigWigs wird keine Leisten anzeigen."
+
+--L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
+--L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
+--L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"
+--L.developerMode = "Developer Mode"
 
 -----------------------------------------------------------------------
 -- Victory.lua

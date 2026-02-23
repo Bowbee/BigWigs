@@ -1118,13 +1118,11 @@ L.enableBlizzTimelineDesc = "Cela affichera tous les CàR sur la ligne temporell
 L.enableBlizzWarnings = "Activer les avertissements de boss de Blizz"
 L.enableBlizzWarningsDesc = "Lorsque vous activez les avertissements de boss de Blizz, vous devriez désactiver l'affichage en tant que message BigWigs ou vous verrez les messages deux fois."
 L.show_bars = "Afficher les barres à partir de"
-L.custom_timers = "Comptes à rebours personnalisés"
-L.custom_timers_desc = "BigWigs remplacera les CàR de Blizzard avec de meilleurs timings si disponibles, sinon les timingd de Blizzard seront utilisés."
-L.blizzard_timers = "CàR Blizzard"
-L.blizzard_timers_desc = "Affiche les CàR de Blizzard comme des barres de BigWigs."
-L.both_timers = "Les deux"
-L.both_timers_desc = "Affiche les CàR de Blizzard et les CàR personnalisés en même temps. |cffff4411Pour effectuer des tests, et sur les rencontres pas encore mises à jour.|r"
-L.disabled_timers_desc = "BigWigs n'affichera pas de barres."
+
+--L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
+--L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
+--L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"
+--L.developerMode = "Developer Mode"
 
 -----------------------------------------------------------------------
 -- Victory.lua

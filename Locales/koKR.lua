@@ -1118,13 +1118,11 @@ L.enableBlizzTimelineDesc = "이 옵션을 활성화하면 모든 보스 전투 
 L.enableBlizzWarnings = "블리자드 보스 경고 활성화"
 L.enableBlizzWarningsDesc = "블리자드 보스 경고를 활성화할 경우, BigWigs 메시지로 표시하는 기능을 비활성화해야 합니다. 그렇지 않으면 모든 메시지가 두 번 표시됩니다."
 L.show_bars = "바 표시"
-L.custom_timers = "사용자 지정 타이머"
-L.custom_timers_desc = "BigWigs은 블리자드 전투 타이머를 개선된 타이머로 대체합니다. 개선된 타이머가 없을 경우 블리자드 타이머가 사용됩니다."
-L.blizzard_timers = "블리자드 타이머"
-L.blizzard_timers_desc = "블리자드 전투 타이머를 BigWigs 바 형태로 표시합니다."
-L.both_timers = "둘 다"
-L.both_timers_desc = "블리자드 타이머와 사용자 지정 타이머를 동시에 표시합니다. |cffff4411테스트 및 아직 업데이트되지 않은 전투용입니다.|r"
-L.disabled_timers_desc = "BigWigs 바를 표시하지 않습니다."
+
+--L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
+--L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
+--L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"
+--L.developerMode = "Developer Mode"
 
 -----------------------------------------------------------------------
 -- Victory.lua

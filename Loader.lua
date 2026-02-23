@@ -62,6 +62,7 @@ do
 	--@alpha@
 	-- The following code will only be present in alpha ZIPs.
 	releaseType = ALPHA
+	public.usingBigWigsAlpha = true
 	--@end-alpha@
 
 	-- If we find "@" then we're running from Git directly.
@@ -92,6 +93,7 @@ do
 		releaseString = L.guildRelease:format(BIGWIGS_GUILD_VERSION, BIGWIGS_VERSION)
 		versionQueryString = versionQueryString:format(BIGWIGS_VERSION, myGitHash, tbl.guildVersion, tbl.guildName)
 		versionResponseString = versionResponseString:format(BIGWIGS_VERSION, myGitHash, tbl.guildVersion, tbl.guildName)
+		public.usingBigWigsGuild = true
 	else
 		versionQueryString = versionQueryString:format(BIGWIGS_VERSION, myGitHash, 0, "")
 		versionResponseString = versionResponseString:format(BIGWIGS_VERSION, myGitHash, 0, "")

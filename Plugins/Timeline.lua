@@ -1,4 +1,4 @@
-if not BigWigsLoader.isMidnight then return end -- XXX Only for Midnight
+if not BigWigsLoader.isRetail then return end -- Retail only module
 --------------------------------------------------------------------------------
 -- Module Declaration
 --
@@ -18,17 +18,13 @@ local hasCustomTimers = {}
 --
 
 plugin.defaultDB = {
-	show_bars = "custom",
+	timer_mode = "enhanced",
 	show_messages = true,
 	play_sound = true,
 }
 
 local function updateProfile()
 	db = plugin.db.profile
-
-	if db.show_bars == false then -- XXX migrate the previous boolean value?
-		db.show_bars = "none"
-	end
 
 	for k, v in next, db do
 		local defaultType = type(plugin.defaultDB[k])
@@ -37,6 +33,10 @@ local function updateProfile()
 		elseif type(v) ~= defaultType then
 			db[k] = plugin.defaultDB[k]
 		end
+	end
+
+	if db.timer_mode ~= "enhanced" and db.db.timer_mode ~= "blizzbars" and db.timer_mode ~= "blizztimeline" and db.timer_mode ~= "dev" then
+		db.timer_mode = plugin.defaultDB.timer_mode
 	end
 end
 
@@ -85,22 +85,21 @@ do
 				width = "full",
 				order = 2,
 			},
-			show_bars = {
+			timer_mode = {
 				type = "select",
 				name = L.show_bars,
-				desc = ("|n%s: %s|n|n%s: %s|n|n%s: %s|n|n%s: %s"):format(
-					NORMAL_FONT_COLOR:WrapTextInColorCode(L.custom_timers), WHITE_FONT_COLOR:WrapTextInColorCode(L.custom_timers_desc),
-					NORMAL_FONT_COLOR:WrapTextInColorCode(L.blizzard_timers), WHITE_FONT_COLOR:WrapTextInColorCode(L.blizzard_timers_desc),
-					NORMAL_FONT_COLOR:WrapTextInColorCode(L.both_timers), WHITE_FONT_COLOR:WrapTextInColorCode(L.both_timers_desc),
-					NORMAL_FONT_COLOR:WrapTextInColorCode(L.disabled), WHITE_FONT_COLOR:WrapTextInColorCode(L.disabled_timers_desc)
-				),
 				values = {
-					custom = L.custom_timers,
-					blizzard = L.blizzard_timers,
-					both = L.both_timers,
-					none = L.disabled,
+					enhanced = L.bigwigsEnhancedTimers,
+					blizzbars = L.blizzBasicAsBars,
+					blizztimeline = L.blizzBasicAsBlizzTimeline,
+					dev = (BigWigsLoader.isTestBuild or BigWigsLoader.usingBigWigsAlpha or BigWigsLoader.usingBigWigsGuild) and L.developerMode or nil,
 				},
-				sorting = { "custom", "blizzard", "both", "none" },
+				sorting = {
+					"enhanced",
+					"blizzbars",
+					"blizztimeline",
+					(BigWigsLoader.isTestBuild or BigWigsLoader.usingBigWigsAlpha or BigWigsLoader.usingBigWigsGuild) and "dev" or nil,
+				},
 				get = function(info)
 					return db[info[#info]]
 				end,
@@ -108,7 +107,7 @@ do
 					db[info[#info]] = value
 					plugin:UpdateBarsShown()
 				end,
-				-- width = "full",
+				width = 3,
 				order = 3,
 			},
 			show_messages = {
@@ -329,18 +328,18 @@ do
 end
 
 function plugin:UpdateBarsShown(event, module)
-	local showBlizzardBars = db.show_bars ~= "none"
+	local showBlizzardBars = db.timer_mode ~= "blizztimeline"
 
 	local encounterID = module and module:GetEncounterID()
 	if encounterID then
 		if event == "BigWigs_OnBossEngage" or event == "BigWigs_OnBossEngageMidEncounter" then
 			hasCustomTimers[encounterID] = module.useCustomTimers or nil
-			if module.useCustomTimers and db.show_bars == "custom" then
+			if module.useCustomTimers and db.timer_mode == "enhanced" then
 				showBlizzardBars = false
 			end
 		else -- BigWigs_OnBossDisable
 			hasCustomTimers[encounterID] = nil
-			showBlizzardBars = not next(hasCustomTimers) or db.show_bars == "custom"
+			showBlizzardBars = not next(hasCustomTimers) or db.timer_mode == "enhanced"
 		end
 	end
 
