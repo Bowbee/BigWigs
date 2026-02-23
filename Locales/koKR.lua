@@ -966,6 +966,8 @@ L.nameplateOptInWarning = "|cffff4411경고!|r\n\n'선택 활성화' 모드를 �
 --
 
 L.privateAuras = "비공개 오라"
+--L.privateAurasDesc1 = "'Private Auras' are a special type of debuff that addons cannot detect or perform any automation on. These debuffs are used by all modern boss encounters now.\n\n"
+--L.privateAurasDesc2 = "BigWigs can help you keep track of when they are applied to you by displaying them as icons. |cFF33FF99This can help you by displaying critical debuffs separately from your normal debuffs.|r\n\n"
 
 L.createTestAura = "테스트 오라 생성"
 L.showDispelType = "해제 유형 표시기 표시"

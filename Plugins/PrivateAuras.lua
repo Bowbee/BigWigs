@@ -278,6 +278,11 @@ do
 			end
 		end
 	end
+	local function IsFeatureEntirelyDisabled()
+		if db.player.disabled and db.other.disabled then
+			return true
+		end
+	end
 
 	plugin.pluginOptions = {
 		type = "group",
@@ -286,6 +291,20 @@ do
 		handler = plugin,
 		order = 3,
 		args = {
+			heading1 = {
+				type = "description",
+				name = L.privateAurasDesc1,
+				order = 0,
+				width = "full",
+				fontSize = "medium",
+			},
+			heading2 = {
+				type = "description",
+				name = L.privateAurasDesc2,
+				order = 0.5,
+				width = "full",
+				fontSize = "medium",
+			},
 			anchorsButton = {
 				type = "execute",
 				name = function()
@@ -304,6 +323,7 @@ do
 				end,
 				width = 1.5,
 				order = 1,
+				disabled = IsFeatureEntirelyDisabled,
 			},
 			testButton = {
 				type = "execute",
@@ -311,6 +331,7 @@ do
 				func = "CreateTestAura",
 				width = 1.5,
 				order = 2,
+				disabled = IsFeatureEntirelyDisabled,
 			},
 			showDispelType = {
 				type = "toggle",
@@ -323,11 +344,7 @@ do
 				end,
 				width = "full",
 				order = 3,
-				disabled = function()
-					if db.player.disabled and db.other.disabled then
-						return true
-					end
-				end,
+				disabled = IsFeatureEntirelyDisabled,
 			},
 			player = {
 				type = "group",

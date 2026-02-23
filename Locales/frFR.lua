@@ -966,6 +966,8 @@ L.nameplateOptInWarning = "|cffff4411ATTENTION !|r\n\nActiver ce choix va désa
 --
 
 L.privateAuras = "Auras privées"
+--L.privateAurasDesc1 = "'Private Auras' are a special type of debuff that addons cannot detect or perform any automation on. These debuffs are used by all modern boss encounters now.\n\n"
+--L.privateAurasDesc2 = "BigWigs can help you keep track of when they are applied to you by displaying them as icons. |cFF33FF99This can help you by displaying critical debuffs separately from your normal debuffs.|r\n\n"
 
 L.createTestAura = "Créer une Aura de Test"
 L.showDispelType = "Afficher l'indicateur du type de dispell"
