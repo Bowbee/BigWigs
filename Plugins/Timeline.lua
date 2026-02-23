@@ -48,9 +48,6 @@ do
 	local function timelineDisabled()
 		return not C_CVar.GetCVarBool("combatWarningsEnabled") or not C_CVar.GetCVarBool("encounterTimelineEnabled")
 	end
-	local function warningsDisabled()
-		return not C_CVar.GetCVarBool("combatWarningsEnabled") or not C_CVar.GetCVarBool("encounterWarningsEnabled")
-	end
 
 	plugin.pluginOptions = {
 		type = "group",
