@@ -45,6 +45,8 @@ local dontPrint = { -- Don't print a warning message for these difficulties
 	[9] = true, -- 40 Player (MC/BWL/AQ40)
 	[23] = true, -- Mythic Dungeon
 	[24] = true, -- Timewalking
+	[173] = true, -- Normal Dungeon (Classic)
+	[174] = true, -- Heroic Dungeon (Classic)
 	[208] = true, -- Delves
 }
 
