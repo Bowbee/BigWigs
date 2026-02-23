@@ -1104,21 +1104,11 @@ L.newFastestVictoryPrint = "新的最快获胜：（-%s）" -- New fastest victo
 --
 
 L.timeline = "时间轴"
-L.blizzTimersAsBigWigsBars = "使用 BigWigs 计时条替换暴雪内置时间轴"
-L.blizzTimersAsBigWigsBarsDesc = "所有暴雪内置的首领计时器（时间轴）替换为 BigWigs 的计时条样式。"
-L.blizzWarningsAsBigWigsMessages = "使用 BigWigs 信息替换暴雪内置首领预警"
-L.blizzWarningsAsBigWigsMessagesDesc = "将所有暴雪首领预警信息将显示为 BigWigs 的消息风格。"
-L.blizzAudioAsBigWigsAudio = "使用 BigWigs 音效替换暴雪内置音效"
-L.blizzAudioAsBigWigsAudioDesc = "将暴雪的内置音效替换为 BigWigs 音效，并根据重要程度播放对应的音效（警告、警示、警报）。"
-L.blizzWarningSettings = "暴雪首领预警设置"
 L.blizzTimelineSettings = "暴雪时间轴设置"
 L.blizzTimelineSettingsNote = "|cffff4411本页选项仅控制暴雪内置设置，此处提供是为了方便你与 BigWigs 的选项一起设置。|r"
 L.enableBlizzTimeline = "启用暴雪时间轴"
 L.enableBlizzTimelineDesc = "在暴雪时间轴上显示所有首领战斗计时器。"
-L.enableBlizzWarnings = "启用暴雪首领预警"
-L.enableBlizzWarningsDesc = "启用暴雪首领预警时，建议同时关闭“使用 BigWigs 信息替换暴雪内置首领预警”功能，否则所有信息将会重复显示。"
 L.show_bars = "显示计时条来自"
-
 --L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
 --L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
 --L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"

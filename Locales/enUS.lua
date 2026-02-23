@@ -1103,21 +1103,11 @@ L.newFastestVictoryPrint = "New fastest victory: (-%s)" -- New fastest victory: 
 --
 
 L.timeline = "Timeline"
-L.blizzTimersAsBigWigsBars = "Show Blizz timers (timeline) as BigWigs bars"
-L.blizzTimersAsBigWigsBarsDesc = "All Blizzard boss timers (timeline) will display as BigWigs bars instead."
-L.blizzWarningsAsBigWigsMessages = "Show Blizz boss warnings as BigWigs messages"
-L.blizzWarningsAsBigWigsMessagesDesc = "All Blizzard boss warnings will display as BigWigs messages instead."
-L.blizzAudioAsBigWigsAudio = "Convert Blizz sounds to BigWigs sounds"
-L.blizzAudioAsBigWigsAudioDesc = "Play your BigWigs sounds (Alert, Alarm & Warning) based on the encounter warning severity."
-L.blizzWarningSettings = "Blizzard Warnings Settings"
 L.blizzTimelineSettings = "Blizzard Timeline Settings"
 L.blizzTimelineSettingsNote = "|cffff4411These options just control the Blizzard settings and are here as a convenience.|r"
 L.enableBlizzTimeline = "Enable Blizz timeline"
 L.enableBlizzTimelineDesc = "This will show all boss encounter timers on the Blizzard timeline."
-L.enableBlizzWarnings = "Enable Blizz boss warnings"
-L.enableBlizzWarningsDesc = "When enabling the Blizzard boss warnings you should also disable showing them as BigWigs messages or you will see all messages twice."
 L.show_bars = "Show Bars From"
-
 L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
 L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
 L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"

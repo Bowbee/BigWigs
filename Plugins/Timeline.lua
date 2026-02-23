@@ -19,8 +19,6 @@ local hasCustomTimers = {}
 
 plugin.defaultDB = {
 	timer_mode = "enhanced",
-	show_messages = true,
-	play_sound = true,
 }
 
 local function updateProfile()
@@ -110,32 +108,6 @@ do
 				width = 3,
 				order = 3,
 			},
-			show_messages = {
-				type = "toggle",
-				name = L.blizzWarningsAsBigWigsMessages,
-				desc = L.blizzWarningsAsBigWigsMessagesDesc,
-				get = function(info)
-					return db[info[#info]]
-				end,
-				set = function(info, value)
-					db[info[#info]] = value
-				end,
-				width = "full",
-				order = 4,
-			},
-			play_sound = {
-				type = "toggle",
-				name = L.blizzAudioAsBigWigsAudio,
-				desc = L.blizzAudioAsBigWigsAudioDesc,
-				get = function(info)
-					return db[info[#info]]
-				end,
-				set = function(info, value)
-					db[info[#info]] = value
-				end,
-				width = "full",
-				order = 5,
-			},
 			timeline = {
 				type = "group",
 				name = L.blizzTimelineSettings,
@@ -221,67 +193,6 @@ do
 					},
 				},
 			},
-			warnings = {
-				type = "group",
-				name = L.blizzWarningSettings,
-				get = function(info)
-					local cvar = info[#info]
-					return C_CVar.GetCVarBool(cvar)
-				end,
-				set = function(info, value)
-					local cvar = info[#info]
-					C_CVar.SetCVar(cvar, value and "1" or "0")
-				end,
-				order = 20,
-				args = {
-					header = {
-						type = "description",
-						name = L.blizzTimelineSettingsNote,
-						order = 0,
-					},
-					encounterWarningsEnabled = {
-						type = "toggle",
-						name = L.enableBlizzWarnings,
-						desc = L.enableBlizzWarningsDesc,
-						width = 1.5,
-						order = 1,
-						disabled = function() return db.show_messages end,
-					},
-					encounterWarningsLevel = {
-						type = "select",
-						name = _G.COMBAT_WARNINGS_ENABLE_ENCOUNTER_WARNINGS_LABEL,
-						desc = ("%s|n|n%s: %s|n|n%s: %s|N|n%s: %s"):format(_G.COMBAT_WARNINGS_ENABLE_ENCOUNTER_WARNINGS_TOOLTIP,
-							NORMAL_FONT_COLOR:WrapTextInColorCode(_G.COMBAT_WARNINGS_TEXT_LEVEL_MINOR_LABEL), WHITE_FONT_COLOR:WrapTextInColorCode(_G.COMBAT_WARNINGS_TEXT_LEVEL_MINOR_TOOLTIP),
-							NORMAL_FONT_COLOR:WrapTextInColorCode(_G.COMBAT_WARNINGS_TEXT_LEVEL_MEDIUM_LABEL), WHITE_FONT_COLOR:WrapTextInColorCode(_G.COMBAT_WARNINGS_TEXT_LEVEL_MEDIUM_TOOLTIP),
-							NORMAL_FONT_COLOR:WrapTextInColorCode(_G.COMBAT_WARNINGS_TEXT_LEVEL_CRITICAL_LABEL), WHITE_FONT_COLOR:WrapTextInColorCode(_G.COMBAT_WARNINGS_TEXT_LEVEL_CRITICAL_TOOLTIP)
-						),
-						values = {
-							[Enum.EncounterEventSeverity.Low] = _G.COMBAT_WARNINGS_TEXT_LEVEL_MINOR_LABEL,
-							[Enum.EncounterEventSeverity.Medium] = _G.COMBAT_WARNINGS_TEXT_LEVEL_MEDIUM_LABEL,
-							[Enum.EncounterEventSeverity.High] = _G.COMBAT_WARNINGS_TEXT_LEVEL_CRITICAL_LABEL,
-						},
-						get = function(info)
-							local cvar = info[#info]
-							return tonumber(C_CVar.GetCVar(cvar))
-						end,
-						set = function(info, value)
-							local cvar = info[#info]
-							C_CVar.SetCVar(cvar, tostring(value))
-						end,
-						disabled = warningsDisabled,
-						width = 1,
-						order = 2,
-					},
-					encounterWarningsHideIfNotTargetingPlayer = {
-						type = "toggle",
-						name = _G.COMBAT_WARNINGS_HIDE_IF_NOT_TARGETING_PLAYER_LABEL,
-						desc = _G.COMBAT_WARNINGS_HIDE_IF_NOT_TARGETING_PLAYER_TOOLTIP,
-						disabled = warningsDisabled,
-						width = 2,
-						order = 3,
-					},
-				},
-			},
 		},
 	}
 
@@ -318,12 +229,8 @@ do
 
 	function plugin:DoTestMessage(name, icon)
 		local severity = math.random(1, 3)
-		if db.show_messages then
-			plugin:SendMessage("BigWigs_Message", plugin, nil, name, colors[severity], icon, false)
-		end
-		if db.play_sound then
-			plugin:SendMessage("BigWigs_Sound", plugin, nil, sounds[severity])
-		end
+		plugin:SendMessage("BigWigs_Message", plugin, nil, name, colors[severity], icon, false)
+		plugin:SendMessage("BigWigs_Sound", plugin, nil, sounds[severity])
 	end
 end
 
@@ -378,9 +285,7 @@ function plugin:OnPluginEnable()
 
 	self:RegisterEvent("ENCOUNTER_WARNING")
 
-	if db.show_messages then
-		C_CVar.SetCVar("encounterWarningsEnabled", "0")
-	end
+	C_CVar.SetCVar("encounterWarningsEnabled", "0")
 end
 
 function plugin:OnPluginDisable()
@@ -455,7 +360,7 @@ function plugin:ENCOUNTER_TIMELINE_EVENT_STATE_CHANGED(_, eventId)
 	elseif newState == Enum.EncounterTimelineEventState.Finished then
 		local info = C_EncounterTimeline.GetEventInfo(eventId)
 		if info.source == Enum.EncounterTimelineEventSource.EditMode then
-			self:DoTestMessage(("%s (%d)"):format(info.spellName, tonumber(strsub(eventId, -1)) + 1), info.iconFileID)
+			self:DoTestMessage(("%s (%d)"):format(L.test, tonumber(strsub(eventId, -1)) + 1), info.iconFileID)
 		end
 		self:SendMessage("BigWigs_StopBar", nil, nil, eventId)
 	end
@@ -469,6 +374,16 @@ end
 -------------------------------------------------------------------------------
 -- Messages
 
+local severitySoundMap = {
+	[0] = "alert",
+	[1] = "alarm",
+	[2] = "warning",
+}
+local severityColorMap = {
+	[0] = "yellow",
+	[1] = "orange",
+	[2] = "red",
+}
 function plugin:ENCOUNTER_WARNING(_, eventInfo)
 	-- Not Secret
 	-- local duration = eventInfo.duration
@@ -490,10 +405,10 @@ function plugin:ENCOUNTER_WARNING(_, eventInfo)
 	-- we obviously can't check if the message is targeting the player, so we lose that functionality
 	-- local shouldShowWarningBasedOnSeverity = severity >= tonumber(C_CVar.GetCVar("encounterWarningsLevel"))
 
-	if db.show_messages then
+	local formattedTargetName = targetName
+	if targetGUID then
 		local messages = BigWigs:GetPlugin("Messages", true)
-		local formattedTargetName = targetName
-		if targetGUID and messages.db.profile.classcolor then
+		if not messages or (messages and messages.db.profile.classcolor) then
 			local _, className = GetPlayerInfoByGUID(targetGUID)
 			if className then
 				local classColor = C_ClassColor.GetClassColor(className)
@@ -502,24 +417,12 @@ function plugin:ENCOUNTER_WARNING(_, eventInfo)
 				end
 			end
 		end
-		local formattedText = string.format(text, casterName, formattedTargetName)
-
-		local severityColorMap = {
-			[0] = "yellow",
-			[1] = "orange",
-			[2] = "red",
-		}
-
-		self:SendMessage("BigWigs_Message", nil, false, formattedText, severityColorMap[severity] or "yellow", iconFileID, false)
 	end
+	local formattedText = string.format(text, casterName, formattedTargetName)
 
-	if shouldPlaySound and db.play_sound then
-		local severitySoundMap = {
-			[0] = "alert",
-			[1] = "alarm",
-			[2] = "warning",
-		}
+	self:SendMessage("BigWigs_Message", nil, false, formattedText, severityColorMap[severity] or "yellow", iconFileID, false)
 
+	if shouldPlaySound then
 		self:SendMessage("BigWigs_Sound", nil, false, severitySoundMap[severity] or "alert")
 	end
 end
