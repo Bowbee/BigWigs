@@ -989,7 +989,8 @@ L.maxIcons = "Icônes Max"
 L.maxIconsDesc = "Nombre maximum d'icônes à afficher."
 L.privateAurasHelpTip = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\minimap_raid:0:0|tBigWigs : Vous pouvez voir vos affaiblissements d'aura privée en tant qu'icônes, ou même les auras privées d'un autre joueur (comme un a tank)."
 
-L.privateAurasTestAnchorText = "AP %d"
+L.privateAurasTestAnchorText = "Aura\nPrivée\n(%d)"
+--L.privateAurasTestTankAnchorText = "Tank\nAura\n(%d)"
 
 -----------------------------------------------------------------------
 -- Proximity.lua

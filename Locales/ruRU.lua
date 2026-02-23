@@ -902,7 +902,8 @@ L.fadeTimeDesc = "Сколько секунд будет затухать соо
 --L.maxIconsDesc = "The maximum amount of icons to be displayed."
 --L.privateAurasHelpTip = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\minimap_raid:0:0|tBigWigs: You can now see your private aura debuffs as icons, or even the private auras of another player (e.g. a tank)."
 
---L.privateAurasTestAnchorText = "PA %d"
+--L.privateAurasTestAnchorText = "Private\nAura\n(%d)"
+--L.privateAurasTestTankAnchorText = "Tank\nAura\n(%d)"
 
 -----------------------------------------------------------------------
 -- Nameplates.lua

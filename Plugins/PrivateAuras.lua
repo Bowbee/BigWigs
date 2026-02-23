@@ -887,7 +887,7 @@ do
 		bg:SetColorTexture(0, 0, 0, parent.hasTestIcon and 0 or 0.3)
 		display.bg = bg
 
-		local header = display:CreateFontString(nil, "ARTWORK")
+		local header = display:CreateFontString()
 		header:SetFont(plugin:GetDefaultFont(12))
 		header:SetShadowOffset(1, -1)
 		header:SetTextColor(1, 0.82, 0, 1)
@@ -908,7 +908,7 @@ do
 				local anchor = unitAnchors[i]
 				if not anchor.configModeFrame then
 					anchor.configModeFrame = createDragAnchor(anchor)
-					anchor.configModeFrame.text:SetText(anchor.hasTestIcon and "" or L.privateAurasTestAnchorText:format(i))
+					anchor.configModeFrame.text:SetText(anchor.hasTestIcon and "" or (anchor.unitType == "player" and L.privateAurasTestAnchorText or L.privateAurasTestTankAnchorText):format(i))
 					anchor.configModeFrame.dragAnchor = unitAnchors[1]
 				end
 				anchor.configModeFrame:Show()
@@ -1176,7 +1176,7 @@ do
 		frame:Hide()
 		anchor.hasTestIcon = nil
 		if anchor.configModeFrame then
-			anchor.configModeFrame.text:SetText(L.privateAurasTestAnchorText:format(anchor:GetID()))
+			anchor.configModeFrame.text:SetText((anchor.unitType == "player" and L.privateAurasTestAnchorText or L.privateAurasTestTankAnchorText):format(anchor:GetID()))
 			anchor.configModeFrame.bg:SetColorTexture(0, 0, 0, 0.3)
 		end
 

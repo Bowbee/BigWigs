@@ -989,7 +989,8 @@ L.maxIcons = "Maximale Symbolanzahl"
 L.maxIconsDesc = "Die maximale Anzahl der angezeigten Symbole."
 L.privateAurasHelpTip = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\minimap_raid:0:0|tBigWigs: Du kannst jetzt Deine privaten Aura Debuffs als Symbole sehen, oder sogar die privaten Auren eines anderen Spielers (z.B. eines Tanks)."
 
-L.privateAurasTestAnchorText = "PA %d"
+L.privateAurasTestAnchorText = "Private\nAuren\n(%d)"
+--L.privateAurasTestTankAnchorText = "Tank\nAura\n(%d)"
 
 -----------------------------------------------------------------------
 -- Proximity.lua
