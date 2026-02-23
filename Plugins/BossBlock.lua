@@ -821,23 +821,11 @@ do
 						frame:SetAlpha(0) -- XXX FIXME
 					end
 				end
-			elseif not isVanilla then
-				local frame = Questie_BaseFrame or WatchFrame
+			else
+				local frame = Questie_BaseFrame or WatchFrame or QuestWatchFrame -- Questie, Vanilla/TBC, Wrath+
 				if type(frame) == "table" and type(frame.GetObjectType) == "function" then
-					local trackedAchievements = GetTrackedAchievements and GetTrackedAchievements()
+					local trackedAchievements = type(GetTrackedAchievements) == "function" and GetTrackedAchievements()
 					if not restoreObjectiveTracker and self.db.profile.blockObjectiveTracker and not trackedAchievements and not bbFrame.IsProtected(frame) then
-						restoreObjectiveTracker = bbFrame.GetParent(frame)
-						if restoreObjectiveTracker then
-							bbFrame.SetFixedFrameStrata(frame, true) -- Changing parent would change the strata & level, lock it first
-							bbFrame.SetFixedFrameLevel(frame, true)
-							bbFrame.SetParent(frame, bbFrame)
-						end
-					end
-				end
-			elseif isVanilla then
-				local frame = Questie_BaseFrame or QuestWatchFrame
-				if type(frame) == "table" and type(frame.GetObjectType) == "function" then
-					if not restoreObjectiveTracker and self.db.profile.blockObjectiveTracker and not bbFrame.IsProtected(frame) then
 						restoreObjectiveTracker = bbFrame.GetParent(frame)
 						if restoreObjectiveTracker then
 							bbFrame.SetFixedFrameStrata(frame, true) -- Changing parent would change the strata & level, lock it first
