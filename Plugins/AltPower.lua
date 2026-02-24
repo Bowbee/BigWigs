@@ -4,7 +4,7 @@ if BigWigsLoader.isMidnight then return end -- XXX needs updating for 12.0
 -- Module Declaration
 --
 
-if BigWigsLoader.isVanilla then return end
+if BigWigsLoader.isVanilla or BigWigsLoader.isTBC or BigWigsLoader.isWrath then return end -- Cataclysm+
 
 local plugin, L = BigWigs:NewPlugin("AltPower")
 if not plugin then return end
