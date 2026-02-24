@@ -33,7 +33,7 @@ local function updateProfile()
 		end
 	end
 
-	if db.timer_mode ~= "enhanced" and db.db.timer_mode ~= "blizzbars" and db.timer_mode ~= "blizztimeline" and db.timer_mode ~= "dev" then
+	if db.timer_mode ~= "enhanced" and db.timer_mode ~= "blizzbars" and db.timer_mode ~= "blizztimeline" and db.timer_mode ~= "dev" then
 		db.timer_mode = plugin.defaultDB.timer_mode
 	end
 end
