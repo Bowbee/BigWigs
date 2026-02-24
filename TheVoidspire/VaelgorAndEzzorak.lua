@@ -186,7 +186,6 @@ end
 function mod:RadiantBarrier(duration)
 	local barText = CL.count:format(CL.stage:format(2), radiantBarrierCount)
 	self:CDBar("stages", duration, barText, 1248847) -- Radiant Barrier icon
-	nextRadiantBarrier = GetTime() + duration
 	radiantBarrierCount = radiantBarrierCount + 1
 	return {
 		msg = barText,
