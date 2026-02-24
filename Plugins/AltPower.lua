@@ -213,7 +213,7 @@ do
 		name = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\Menus\\AltPower:20|t ".. L.altPowerTitle,
 		type = "group",
 		childGroups = "tab",
-		order = 15,
+		order = 17,
 		get = function(info)
 			return db[info[#info]]
 		end,

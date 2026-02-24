@@ -289,7 +289,7 @@ do
 		name = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\Menus\\Private:20|t ".. L.privateAuras,
 		childGroups = "tab",
 		handler = plugin,
-		order = 3,
+		order = 4,
 		args = {
 			heading1 = {
 				type = "description",

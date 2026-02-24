@@ -53,7 +53,7 @@ do
 		type = "group",
 		name = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\Menus\\Timeline:20|t ".. L.timeline,
 		childGroups = "tab",
-		order = 0.1,
+		order = 5,
 		args = {
 			anchorsButton = {
 				type = "execute",
