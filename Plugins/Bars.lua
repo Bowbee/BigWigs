@@ -328,6 +328,33 @@ do
 	local function HiddenOnRetail() return not BigWigsLoader.isRetail end
 	local function IsNormalAnchorPointDefault() return db.normalPosition[5] == plugin.defaultDB.normalPosition[5] end
 	local function IsExpAnchorPointDefault() return db.expPosition[5] == plugin.defaultDB.expPosition[5] end
+
+	local inTestMode = false
+	local StartTest, StopTest
+	do
+		local timer = nil
+		local function QueueEditModeEvents()
+			local duration = C_EncounterTimeline.AddEditModeEvents()
+			timer = plugin:ScheduleTimer(QueueEditModeEvents, duration)
+		end
+
+		function StartTest()
+			inTestMode = true
+			if not timer then
+				QueueEditModeEvents()
+			end
+		end
+
+		function StopTest()
+			inTestMode = false
+			if timer then
+				plugin:CancelTimer(timer)
+				timer = nil
+				C_EncounterTimeline.CancelEditModeEvents()
+			end
+		end
+	end
+
 	plugin.pluginOptions = {
 		type = "group",
 		name = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\Menus\\Bars:20|t ".. L.bars,
@@ -367,7 +394,25 @@ do
 				width = 1.5,
 				order = 0.2,
 			},
-			testButton = {
+			testButton = BigWigsLoader.isRetail and {
+				type = "execute",
+				name = function()
+					if inTestMode then
+						return L.stopTest
+					else
+						return L.startTest
+					end
+				end,
+				func = function()
+					if inTestMode then
+						StopTest()
+					else
+						StartTest()
+					end
+				end,
+				width = 1.5,
+				order = 0.4,
+			} or {
 				type = "execute",
 				name = L.testBarsBtn,
 				desc = L.testBarsBtn_desc,
