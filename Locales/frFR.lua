@@ -14,7 +14,7 @@ L.altpower_desc = "Affiche la fenêtre de ressource alternative, qui montre la q
 L.infobox = "Boîte d'information"
 L.infobox_desc = "Affiche une boîte d'information concernant la rencontre."
 L.stages = "Phases"
-L.stages_desc = "Active les fonctions relatives aux différentes phases lors d'un combat de boss tels quel les avertissements de changement de phase, les bars de durée de phase, etc."
+L.stages_desc = "Active les fonctions relatives aux différentes phases lors d'un combat de boss telles que les avertissements de changement de phase, les barres de durée de phase, etc."
 L.warmup = "Préparation"
 L.warmup_desc = "Temps avant que le combat face au boss ne commence."
 L.proximity = "Affichage de proximité"
@@ -438,7 +438,7 @@ L.keystoneTeleportTip = "Cliquez sur le nom du donjon ci-dessous afin de vous |c
 L.keystoneTimerunner = "|A:timerunning-glues-icon:14:14|aCeci est un personnage du cours du temps." -- Note: Timerunning is a mode like "Legion Remix", it is NOT the same as Timewalking
 L.keystoneSlashKeys = "Prend également en compte la commande |cFF33FF99/keys|r"
 L.keystoneSlashKeystone = "Prend également en compte la commande |cFF33FF99/keystone|r"
---L.unavailableWhilstInCombat = "Unavailable whilst in combat"
+L.unavailableWhilstInCombat = "Indisponible pendant le combat"
 
 -- It doesn't really matter what you call it as long as it's recognizable and limited to ~6 characters
 L.keystoneShortName_TheRookery = "COLONIE"
@@ -966,8 +966,8 @@ L.nameplateOptInWarning = "|cffff4411ATTENTION !|r\n\nActiver ce choix va désa
 --
 
 L.privateAuras = "Auras privées"
---L.privateAurasDesc1 = "'Private Auras' are a special type of debuff that addons cannot detect or perform any automation on. These debuffs are used by all modern boss encounters now.\n\n"
---L.privateAurasDesc2 = "BigWigs can help you keep track of when they are applied to you by displaying them as icons. |cFF33FF99This can help you by displaying critical debuffs separately from your normal debuffs.|r\n\n"
+L.privateAurasDesc1 = "'Auras privées' sont un type spécial d'affaiblissements que les addons ne peuvent détécter ou traiter automatiquement. Ces affaiblissements sont désormais utilisés sur toutes les rencontres de boss modernes.\n\n"
+L.privateAurasDesc2 = "BigWigs peut vous aider à les traquer lorsqu'elles sont appliquées sur vous en les affichant en tant qu'icônes. |cFF33FF99Cela peut vous aider à afficher les affaiblissements critiques séparemment de vos affaiblissements classiques.|r\n\n"
 
 L.createTestAura = "Créer une Aura de Test"
 L.showDispelType = "Afficher l'indicateur du type de dispell"
@@ -992,7 +992,7 @@ L.maxIconsDesc = "Nombre maximum d'icônes à afficher."
 L.privateAurasHelpTip = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\minimap_raid:0:0|tBigWigs : Vous pouvez voir vos affaiblissements d'aura privée en tant qu'icônes, ou même les auras privées d'un autre joueur (comme un a tank)."
 
 L.privateAurasTestAnchorText = "Aura\nPrivée\n(%d)"
---L.privateAurasTestTankAnchorText = "Tank\nAura\n(%d)"
+L.privateAurasTestTankAnchorText = "Aura\nTank\n(%d)"
 
 -----------------------------------------------------------------------
 -- Proximity.lua
@@ -1110,11 +1110,11 @@ L.blizzTimelineSettings = "Paramètres de la ligne temporelle de Blizz"
 L.blizzTimelineSettingsNote = "|cffff4411Ces options ne contrôlent que les paramètres de Blizz settings et sont ici par commodité.|r"
 L.enableBlizzTimeline = "Activer la ligne temporelle de Blizz"
 L.enableBlizzTimelineDesc = "Cela affichera tous les CàR sur la ligne temporelle de Blizz."
-L.show_bars = "Afficher les barres à partir de"
---L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
---L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
---L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"
---L.developerMode = "Developer Mode"
+L.show_bars = "Afficher les barres à partir des"
+L.bigwigsEnhancedTimers = "CàR enrichis de BigWigs affichés en tant que barres de BigWigs |cFF33FF99(recommandé)|r"
+L.blizzBasicAsBars = "CàR classiques de Blizzard affichés en tant que barres de BigWigs"
+L.blizzBasicAsBlizzTimeline = "CàR classiques de Blizzard affichés sur la ligne temporelle de Blizzard"
+L.developerMode = "Mode développeur"
 
 -----------------------------------------------------------------------
 -- Victory.lua
