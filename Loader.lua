@@ -333,25 +333,14 @@ do
 				lw_cs,
 			},
 			currentSeason = {
-				[2212] = lw_cs, -- Horrific Vision of Orgrimmar
-				[2213] = lw_cs, -- Horrific Vision of Stormwind
-				[2287] = lw_cs, -- Halls of Atonement
-				[2441] = lw_cs, -- Tazavesh, the Veiled Market
-				[2649] = lw_cs, -- Priory of the Sacred Flame
-				[2660] = lw_cs, -- Ara-Kara, City of Echoes
-				[2662] = lw_cs, -- The Dawnbreaker
-				[2773] = lw_cs, -- Operation: Floodgate
-				[2830] = lw_cs, -- Eco-Dome Al'dani
-				[369] = UnitFactionGroup("player") == "Alliance" and lw_cs or nil, -- Deeprun Tram
-				[1043] = UnitFactionGroup("player") == "Horde" and lw_cs or nil, -- Brawl'gar Arena
-				--[2805] = lw_cs, -- Windrunner Spire
-				--[2811] = lw_cs, -- Magisters' Terrace
-				--[2874] = lw_cs, -- Maisara Caverns
-				--[2915] = lw_cs, -- Nexus-Point Xenas
-				--[2526] = lw_cs, -- Algeth'ar Academy
-				--[1753] = lw_cs, -- Seat of the Triumvirate
-				--[1209] = lw_cs, -- Skyreach
-				--[658] = lw_cs, -- Pit of Saron
+				[2805] = lw_cs, -- Windrunner Spire
+				[2811] = lw_cs, -- Magisters' Terrace
+				[2874] = lw_cs, -- Maisara Caverns
+				[2915] = lw_cs, -- Nexus-Point Xenas
+				[2526] = lw_cs, -- Algeth'ar Academy
+				[1753] = lw_cs, -- Seat of the Triumvirate
+				[1209] = lw_cs, -- Skyreach
+				[658] = lw_cs, -- Pit of Saron
 			},
 			zones = {
 				[2939] = "BigWigs_TheDreamrift",
