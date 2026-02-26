@@ -267,6 +267,7 @@ end
 function plugin:OnRegister()
 	self.displayName = L.timeline
 	C_CVar.SetCVar("combatWarningsEnabled", "1")
+	C_CVar.SetCVar("encounterWarningsEnabled", "0")
 end
 
 function plugin:OnPluginEnable()
@@ -280,8 +281,7 @@ function plugin:OnPluginEnable()
 	self:RegisterMessage("BigWigs_OnBossDisable", "UpdateBarsShown")
 	self:UpdateBarsShown()
 
-	self:RegisterEvent("ENCOUNTER_WARNING")
-
+	C_CVar.SetCVar("combatWarningsEnabled", "1")
 	C_CVar.SetCVar("encounterWarningsEnabled", "0")
 end
 
@@ -365,61 +365,4 @@ end
 
 function plugin:ENCOUNTER_TIMELINE_EVENT_REMOVED(_, eventId)
 	self:SendMessage("BigWigs_StopBar", nil, nil, eventId)
-end
-
-
--------------------------------------------------------------------------------
--- Messages
-
-local severitySoundMap = {
-	[0] = "alert",
-	[1] = "alarm",
-	[2] = "warning",
-}
-local severityColorMap = {
-	[0] = "yellow",
-	[1] = "orange",
-	[2] = "red",
-}
-function plugin:ENCOUNTER_WARNING(_, eventInfo)
-	-- Not Secret
-	-- local duration = eventInfo.duration
-	local severity = eventInfo.severity
-	local shouldPlaySound = eventInfo.shouldPlaySound
-	-- local shouldShowChatMessage = eventInfo.shouldShowChatMessage
-	local shouldShowWarning = eventInfo.shouldShowWarning
-
-	-- Secret
-	local text = eventInfo.text
-	-- local casterGUID = eventInfo.casterGUID
-	local casterName = eventInfo.casterName
-	local targetGUID = eventInfo.targetGUID
-	local targetName = eventInfo.targetName
-	local iconFileID = eventInfo.iconFileID
-	-- local tooltipSpellID = eventInfo.tooltipSpellID
-
-	-- shouldShowWarning gets set to false if encounterWarningsEnabled is false
-	-- we obviously can't check if the message is targeting the player, so we lose that functionality
-	-- local shouldShowWarningBasedOnSeverity = severity >= tonumber(C_CVar.GetCVar("encounterWarningsLevel"))
-
-	local formattedTargetName = targetName
-	if targetGUID then
-		local messages = BigWigs:GetPlugin("Messages", true)
-		if not messages or (messages and messages.db.profile.classcolor) then
-			local _, className = GetPlayerInfoByGUID(targetGUID)
-			if className then
-				local classColor = C_ClassColor.GetClassColor(className)
-				if classColor then
-					formattedTargetName = classColor:WrapTextInColorCode(targetName)
-				end
-			end
-		end
-	end
-	local formattedText = string.format(text, casterName, formattedTargetName)
-
-	self:SendMessage("BigWigs_Message", nil, false, formattedText, severityColorMap[severity] or "yellow", iconFileID, false)
-
-	if shouldPlaySound then
-		self:SendMessage("BigWigs_Sound", nil, false, severitySoundMap[severity] or "alert")
-	end
 end
