@@ -967,8 +967,8 @@ L.nameplateOptInWarning = "|cffff4411警告！|r\n\n開啟「手動啟用」模�
 --
 
 L.privateAuras = "私有光環"
---L.privateAurasDesc1 = "'Private Auras' are a special type of debuff that addons cannot detect or perform any automation on. These debuffs are used by all modern boss encounters now.\n\n"
---L.privateAurasDesc2 = "BigWigs can help you keep track of when they are applied to you by displaying them as icons. |cFF33FF99This can help you by displaying critical debuffs separately from your normal debuffs.|r\n\n"
+L.privateAurasDesc1 = "「私有光環」是一種特殊的減益光環，插件無法直接取得光環的詳細資訊，也無法對其進行任何自動化操作。目前，魔獸世界正式版（主時間線）的首領戰鬥普遍採用了這種機制。\n\n" -- retail 正式版 mainline 主時間線
+L.privateAurasDesc2 = "BigWigs 會將這些特殊光環以獨立且醒目的大圖示顯示在畫面中；|cFF33FF99這能將關鍵的減益狀態與一般的負面效果區分開來，讓你迅速掌握自身狀況。|r\n\n"
 
 L.createTestAura = "創建測試光環"
 L.showDispelType = "顯示驅散類型圖示"
@@ -993,7 +993,7 @@ L.maxIconsDesc = "最多顯示幾個圖示。"
 L.privateAurasHelpTip = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\minimap_raid:0:0|tBigWigs: 現在，你可以在受到私有光環減益效果時，獲得大圖示提示；並且，你可以設定是否要監視其他隊友（例如坦克）的狀態。"
 
 L.privateAurasTestAnchorText = "私有\n（%d）"
---L.privateAurasTestTankAnchorText = "Tank\nAura\n(%d)"
+L.privateAurasTestTankAnchorText = "坦克\n光環\n(%d)"
 
 -----------------------------------------------------------------------
 -- Proximity.lua
@@ -1112,10 +1112,11 @@ L.blizzTimelineSettingsNote = "|cffff4411本頁選項僅控制暴雪內建設定
 L.enableBlizzTimeline = "啟用暴雪的首領技能（時間軸）"	-- follow official translate，編輯模式裡這個元素就叫「首領技能」
 L.enableBlizzTimelineDesc = "在暴雪內建的首領技能時間軸上顯示所有的首領戰計時條。"
 L.show_bars = "顯示來源"
---L.bigwigsEnhancedTimers = "BigWigs enhanced timers displayed as BigWigs bars |cFF33FF99(recommended)|r"
---L.blizzBasicAsBars = "Blizzard basic timers displayed as BigWigs bars"
---L.blizzBasicAsBlizzTimeline = "Blizzard basic timers displayed on the Blizzard timeline"
---L.developerMode = "Developer Mode"
+L.bigwigsEnhancedTimers = "BigWigs 風格的計時條 + BigWigs 的校準計時 |cFF33FF99（推薦）|r"
+L.blizzBasicAsBars = "BigWigs 風格的計時條 + 暴雪的內建計時"
+L.blizzBasicAsBlizzTimeline = "暴雪的「首領技能」時間軸 + 暴雪的內建計時（完全使用暴雪原生）"
+L.developerMode = "開發者模式"
+
 
 -----------------------------------------------------------------------
 -- Victory.lua
@@ -1126,10 +1127,10 @@ L.victoryHeader = "設定擊敗首領後顯示的訊息。"
 L.victorySound = "播放勝利音效"
 L.victoryMessages = "顯示擊敗首領訊息"
 L.victoryMessageBigWigs = "顯示 BigWigs 訊息"
-L.victoryMessageBigWigsDesc = "BigWigs 訊息是一條簡單的「首領已被擊敗」訊息。"
+L.victoryMessageBigWigsDesc = "BigWigs 訊息是一條簡單的「已戰勝」訊息。"
 L.victoryMessageBlizzard = "顯示暴雪內建訊息"
-L.victoryMessageBlizzardDesc = "暴雪內建訊息會以特效顯示「首領被擊敗了」於畫面上。"
-L.defeated = "%s被擊敗了！"
+L.victoryMessageBlizzardDesc = "暴雪內建訊息是畫面中央巨大的淡出淡入動畫效果。"
+L.defeated = "你戰勝了%s！" -- 比較適合中文語法
 
 -----------------------------------------------------------------------
 -- Wipe.lua
