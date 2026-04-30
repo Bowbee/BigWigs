@@ -497,10 +497,10 @@ do
 		-- Raid encounters must last longer than 30 seconds to be an actual wipe worth noting
 		return 30
 	end
-	function plugin:BigWigs_OnBossWipe(_, module)
+	function plugin:BigWigs_OnBossWipe(_, module, wipeTime, unitInfo)
 		local journalID = GetModuleID(module)
 		if journalID and activeDurations[journalID] then
-			local elapsed = GetTime()-activeDurations[journalID][1]
+			local elapsed = wipeTime-activeDurations[journalID][1]
 			local difficultyText = activeDurations[journalID][2]
 
 			if elapsed > GetMinimumEncounterDuration(module) then
@@ -528,6 +528,20 @@ do
 							else
 								total = total .. L.comma .. L.healthFormat:format(healthPools[journalID].names[unit], hp*100)
 							end
+						end
+					end
+					if total ~= "" then
+						BigWigs:Print(L.healthPrint:format(total))
+					end
+				elseif unitInfo then
+					local total = ""
+					for i = 1, #unitInfo do
+						local unitTable = unitInfo[i]
+						-- unitTable.creatureID we might need to use this to filter certain units at some point?
+						if total == "" then
+							total = L.healthFormat:format(unitTable.creatureName, unitTable.remainingHealthPercent*100)
+						else
+							total = total .. L.comma .. L.healthFormat:format(unitTable.creatureName, unitTable.remainingHealthPercent*100)
 						end
 					end
 					if total ~= "" then
