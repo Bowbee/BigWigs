@@ -6,6 +6,7 @@ exclude_files = {
 }
 files["API.lua"].ignore = {
 	"113/C_AddOns",
+	"113/C_UIFileAsset",
 	"112/SlashCmdList",
 	"143/table",
 }
