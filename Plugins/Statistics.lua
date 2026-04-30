@@ -50,7 +50,7 @@ local dontPrint = { -- Don't print a warning message for these difficulties
 }
 
 --[[
-12.0.1
+12.0.7
 1. Normal
 2. Heroic
 3. 10 Player
@@ -100,8 +100,15 @@ local dontPrint = { -- Don't print a warning message for these difficulties
 220. Story
 230. Heroic
 232. Event
+233. Mythic - Flexible-Scaling
 236. Lorewalking
 241. Lorewalking
+245. Decor Duel
+247. Decor Duel
+248. RENAME Event
+251. Decor Duel
+253. Decor Duel
+254. Naigtal
 
 5.5.3
 1. Normal
