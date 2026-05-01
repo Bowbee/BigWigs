@@ -196,9 +196,11 @@ files["Plugins/Statistics.lua"].ignore = {
 }
 files["Plugins/Timeline.lua"].ignore = {
 	"113/C_ClassColor",
+	"113/C_UI",
 	"113/C_CVar",
 	"113/C_EncounterWarnings",
 	"113/CriticalEncounterWarnings",
+	"113/EncounterTimeline",
 	"113/Enum",
 	"113/GetPlayerInfoByGUID",
 	"113/MediumEncounterWarnings",
