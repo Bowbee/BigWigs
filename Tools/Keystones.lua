@@ -1253,15 +1253,9 @@ do
 	-- Tab 3 Event Handler (Used for automatically showing the window when the dungeon ends)
 	do
 		local RequestMapInfo = C_MythicPlus.RequestMapInfo
-		local GetMapTable = C_ChallengeMode.GetMapTable
-		local RequestLeaders = C_ChallengeMode.RequestLeaders
 		local function Open()
 			-- Force update the run history in case we decide to click the history tab
 			RequestMapInfo()
-			local maps = GetMapTable() or {}
-			for i = 1, #maps do
-				RequestLeaders(maps[i])
-			end
 
 			if not db.profile.showViewerDungeonEnd or BigWigsLoader.isTestBuild then return end
 
@@ -1281,7 +1275,7 @@ do
 				self:UnregisterEvent(event)
 				Open()
 			else -- CHALLENGE_MODE_COMPLETED
-				BigWigsLoader.CTimerAfter(5, Open)
+				BigWigsLoader.CTimerAfter(7, Open)
 			end
 		end)
 	end
