@@ -1212,7 +1212,9 @@ local function parseLua(file)
 				if color_index then
 					color = tablize(unternary(argsList[color_index+offset], "\"(.-)\"", valid_colors))
 					if functionName:sub(1, 6) == "Target" or functionName == "StackMessageOld" or functionName == "StackMessage" then
-						color[#color+1] = "blue" -- used when on the player
+						if functionName ~= "TargetMessageFromBlizzMessage" then -- TargetMessageFromBlizzMessage never knows when an ability is on you, so it will never be blue
+							color[#color+1] = "blue" -- used when on the player
+						end
 					end
 				end
 				if functionName == "PersonalMessage" then
