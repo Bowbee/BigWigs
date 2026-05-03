@@ -55,6 +55,7 @@ local color_methods = {
 	Message = 2,
 	TargetMessageOld = 3,
 	TargetMessage = 2,
+	TargetMessageFromBlizzMessage = 3,
 	TargetsMessageOld = 2,
 	TargetsMessage = 2,
 	StackMessageOld = 4,
@@ -74,6 +75,7 @@ local icon_methods = {
 	Message = 4,
 	TargetMessageOld = 6,
 	TargetMessage = 5,
+	TargetMessageFromBlizzMessage = 5,
 	TargetsMessageOld = 6,
 	TargetsMessage = 6,
 	StackMessageOld = 7,
@@ -1230,6 +1232,8 @@ local function parseLua(file)
 						local text = argsList[3+offset]
 						error(string.format("    %s:%d: PersonalMessageFromBlizzMessage: Invalid localeString(3)! func=%s, key=%s, localeString=%s, text=%s", file_name, n, tostring(current_func), key, tostring(locale_string), tostring(text)))
 					end
+				elseif functionName == "TargetMessageFromBlizzMessage" then
+					key = unternary(argsList[2+offset], "(-?%d+)") -- key is 2nd arg not first for this API. XXX doesn't allow for string keys
 				end
 				local icon_index = icon_methods[functionName]
 				if icon_index then
