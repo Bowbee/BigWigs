@@ -3453,12 +3453,12 @@ do
 	local GetPlayerInfoByGUID = GetPlayerInfoByGUID
 	local GetClassColor = C_ClassColor and C_ClassColor.GetClassColor -- XXX [Mainline:✓ MoP:✗ Wrath:✗ Vanilla:✗]
 	--- Temporarily replace the next Blizzard boss message with a TargetMessage
-	-- @number duration the duration the block should last
 	-- @param key the option key
+	-- @number duration the duration the block should last
 	-- @string color the message color category
 	-- @param[opt] text the message text (if nil, key is used)
 	-- @param[opt] icon the message icon (spell id or texture name, key is used if nil)
-	function boss:TargetMessageFromBlizzMessage(duration, key, color, text, icon)
+	function boss:TargetMessageFromBlizzMessage(key, duration, color, text, icon)
 		self:StopBlizzMessages(duration)
 
 		local timer = self:ScheduleTimer(function()
@@ -3485,12 +3485,12 @@ do
 end
 
 --- Temporarily replace the next Blizzard boss message with a personal message in blue
--- @number duration the duration the block should last
 -- @param key the option key
+-- @number duration the duration the block should last
 -- @param[opt] localeString if nil then the "%s on YOU" string will be used, if false then the text field will be printed directly, otherwise the common locale will be referenced via CL[localeString]
 -- @param[opt] text the message text (if nil, key is used, if true, the raw Blizzard message is used)
 -- @param[opt] icon the message icon (spell id or texture name or true to use the Blizzard provided icon)
-function boss:PersonalMessageFromBlizzMessage(duration, key, localeString, text, icon)
+function boss:PersonalMessageFromBlizzMessage(key, duration, localeString, text, icon)
 	self:StopBlizzMessages(duration)
 
 	if self:CanPassRoleRestrictions(key) then

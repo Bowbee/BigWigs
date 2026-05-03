@@ -770,7 +770,7 @@ function mod:SilverstrikeArrow()
 		key = 1233602,
 		onFinished = function()
 			self:Message(1233602, "cyan", barText)
-			self:TargetMessageFromBlizzMessage(0.5, 1233602, "blue", CL.you:format(L.silverstrike_arrow))
+			self:PersonalMessageFromBlizzMessage(1233602, 0.5, nil, L.silverstrike_arrow)
 			-- PA target sound
 		end,
 	}
@@ -994,7 +994,7 @@ function mod:AspectOfTheEnd()
 		key = 1239080,
 		onFinished = function()
 			self:Message(1239080, "orange", barText)
-			self:TargetMessageFromBlizzMessage(0.5, 1239080, "blue", CL.you:format(L.aspect_of_the_end))
+			self:PersonalMessageFromBlizzMessage(1239080, 0.5, nil, L.aspect_of_the_end)
 		end,
 	}
 end
