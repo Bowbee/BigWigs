@@ -79,6 +79,7 @@ local icon_methods = {
 	StackMessageOld = 7,
 	StackMessage = 7,
 	PersonalMessage = 4,
+	PersonalMessageFromBlizzMessage = 5,
 	Bar = 4,
 	CDBar = 4,
 	CastBar = 4,
@@ -1219,6 +1220,15 @@ local function parseLua(file)
 					if common_locale and (locale_string and not common_locale[unquote(locale_string)]) then
 						local text = argsList[3+offset]
 						error(string.format("    %s:%d: PersonalMessage: Invalid localeString(2)! func=%s, key=%s, localeString=%s, text=%s", file_name, n, tostring(current_func), key, tostring(locale_string), tostring(text)))
+					end
+				elseif functionName == "PersonalMessageFromBlizzMessage" then
+					color = {"blue"}
+					key = unternary(argsList[2+offset], "(-?%d+)") -- key is 2nd arg not first for this API. XXX doesn't allow for string keys
+					local locale_string = argsList[3+offset]
+					if (locale_string == "nil" or locale_string == "false") then locale_string = nil end
+					if common_locale and (locale_string and not common_locale[unquote(locale_string)]) then
+						local text = argsList[3+offset]
+						error(string.format("    %s:%d: PersonalMessageFromBlizzMessage: Invalid localeString(3)! func=%s, key=%s, localeString=%s, text=%s", file_name, n, tostring(current_func), key, tostring(locale_string), tostring(text)))
 					end
 				end
 				local icon_index = icon_methods[functionName]
