@@ -604,7 +604,7 @@ end
 -- This is a wrapper around the self.db.profile[key] table.
 -- @return boolean or number, depending on option type
 function boss:GetOption(key)
-	return self.db.profile[key]
+	return self.db.profile.toggles[key]
 end
 
 --- Module enabled check.
@@ -2713,7 +2713,7 @@ do
 		-- @return boolean
 		function boss:Dispeller(dispelType, isOffensive, key)
 			if key then
-				local o = self.db.profile[key]
+				local o = self.db.profile.toggles[key]
 				if not o then core:Print(format("Module %s uses %q as a dispel lookup, but it doesn't exist in the module options.", self.name, key)) return end
 				if band(o, C.DISPEL) ~= C.DISPEL then return true end
 			end
@@ -2834,19 +2834,19 @@ do
 		if type(key) == "nil" then core:Print(format(nilKeyError, self.moduleName)) return end
 		if type(flag) ~= "number" then core:Print(format(invalidFlagError, self.moduleName, type(flag), tostring(flag))) return end
 		if type(self.db) ~= "table" then local msg = format(noDBError, self.moduleName) core:Print(msg) error(msg) return end
-		if type(self.db.profile[key]) ~= "number" then
+		if type(self.db.profile.toggles[key]) ~= "number" then
 			if not self.toggleDefaults[key] then
 				core:Print(format(noDefaultError, self.moduleName, key))
 				return
 			end
 			--if debug then
-			--	core:Print(format(notNumberError, self.moduleName, key, type(self.db.profile[key])))
+			--	core:Print(format(notNumberError, self.moduleName, key, type(self.db.profile.toggles[key])))
 			--	return
 			--end
-			self.db.profile[key] = self.toggleDefaults[key]
+			self.db.profile.toggles[key] = self.toggleDefaults[key]
 		end
 
-		local fullKey = self.db.profile[key]
+		local fullKey = self.db.profile.toggles[key]
 		if band(fullKey, C.TANK) == C.TANK and not self:Tank() then return end
 		if band(fullKey, C.HEALER) == C.HEALER and not self:Healer() then return end
 		if band(fullKey, C.TANK_HEALER) == C.TANK_HEALER and not self:Tank() and not self:Healer() then return end
@@ -2873,18 +2873,18 @@ do
 			core:Print(msg)
 			error(msg)
 			return
-		elseif type(self.db.profile[key]) ~= "number" then
+		elseif type(self.db.profile.toggles[key]) ~= "number" then
 			if not self.toggleDefaults[key] then
 				core:Print(format(noDefaultError, self.moduleName, key))
 				return
 			end
 			--if debug then
-			--	core:Print(format(notNumberError, self.moduleName, key, type(self.db.profile[key])))
+			--	core:Print(format(notNumberError, self.moduleName, key, type(self.db.profile.toggles[key])))
 			--	return
 			--end
-			self.db.profile[key] = self.toggleDefaults[key]
+			self.db.profile.toggles[key] = self.toggleDefaults[key]
 		else
-			local fullKey = self.db.profile[key]
+			local fullKey = self.db.profile.toggles[key]
 			if band(fullKey, C.TANK) == C.TANK and not self:Tank() then
 				return
 			elseif band(fullKey, C.HEALER) == C.HEALER and not self:Healer() then
@@ -2901,7 +2901,7 @@ do
 	-- @string flag the option flag to check
 	-- @return boolean
 	function boss:CheckFlag(key, flag)
-		return band(self.db.profile[key], flag) == flag
+		return band(self.db.profile.toggles[key], flag) == flag
 	end
 end
 
@@ -3202,9 +3202,9 @@ do
 			local msg = textType == "string" and text or spells[text or key]
 			local texture = icon ~= false and icons[icon or textType == "number" and text or key]
 			if playersInTable == 1 and (playerTable[1] == myNameWithColor or playerTable[1] == myName) then
-				local meEmphasized = band(self.db.profile[key], C.ME_ONLY_EMPHASIZE) == C.ME_ONLY_EMPHASIZE
+				local meEmphasized = band(self.db.profile.toggles[key], C.ME_ONLY_EMPHASIZE) == C.ME_ONLY_EMPHASIZE
 				if not meEmphasized then -- We already did a ME_ONLY_EMPHASIZE print in :TargetsMessage
-					local emphasized = band(self.db.profile[key], C.EMPHASIZE) == C.EMPHASIZE
+					local emphasized = band(self.db.profile.toggles[key], C.EMPHASIZE) == C.EMPHASIZE
 					if markers then
 						self:SendMessage("BigWigs_Message", self, key, format(CL.you_icon, msg, markers[1]), "blue", texture, emphasized)
 					else
@@ -3219,7 +3219,7 @@ do
 				end
 				local list = self:TableToString(playerTable, playersInTable)
 				-- Don't Emphasize if it's on other people when both EMPHASIZE and ME_ONLY_EMPHASIZE are enabled.
-				local isEmphasized = band(self.db.profile[key], C.EMPHASIZE) == C.EMPHASIZE and band(self.db.profile[key], C.ME_ONLY_EMPHASIZE) ~= C.ME_ONLY_EMPHASIZE
+				local isEmphasized = band(self.db.profile.toggles[key], C.EMPHASIZE) == C.EMPHASIZE and band(self.db.profile.toggles[key], C.ME_ONLY_EMPHASIZE) ~= C.ME_ONLY_EMPHASIZE
 				self:SendMessage("BigWigs_Message", self, key, format(CL.other, msg, list), color, texture, isEmphasized)
 			end
 			twipe(playerTable)
@@ -3240,9 +3240,9 @@ do
 	-- @param[opt] markers a table containing the markers that should be attached next to the player names e.g. {1, 2, 3}
 	function boss:TargetsMessageOld(key, color, playerTable, playerCount, text, icon, customTime, markers)
 		local playersInTable = #playerTable
-		if band(self.db.profile[key], C.ME_ONLY) == C.ME_ONLY then -- We allow ME_ONLY even if MESSAGE off
+		if band(self.db.profile.toggles[key], C.ME_ONLY) == C.ME_ONLY then -- We allow ME_ONLY even if MESSAGE off
 			if (playerTable[playersInTable] == myNameWithColor or playerTable[playersInTable] == myName) and checkFlag(self, key, C.ME_ONLY) then -- Use checkFlag for the role check
-				local isEmphasized = band(self.db.profile[key], C.EMPHASIZE) == C.EMPHASIZE or band(self.db.profile[key], C.ME_ONLY_EMPHASIZE) == C.ME_ONLY_EMPHASIZE
+				local isEmphasized = band(self.db.profile.toggles[key], C.EMPHASIZE) == C.EMPHASIZE or band(self.db.profile.toggles[key], C.ME_ONLY_EMPHASIZE) == C.ME_ONLY_EMPHASIZE
 				local textType = type(text)
 				local msg = textType == "string" and text or spells[text or key]
 				local texture = icon ~= false and icons[icon or textType == "number" and text or key]
@@ -3262,7 +3262,7 @@ do
 				end)
 			end
 		elseif checkFlag(self, key, C.MESSAGE) then
-			if (playerTable[playersInTable] == myNameWithColor or playerTable[playersInTable] == myName) and band(self.db.profile[key], C.ME_ONLY_EMPHASIZE) == C.ME_ONLY_EMPHASIZE then
+			if (playerTable[playersInTable] == myNameWithColor or playerTable[playersInTable] == myName) and band(self.db.profile.toggles[key], C.ME_ONLY_EMPHASIZE) == C.ME_ONLY_EMPHASIZE then
 				local textType = type(text)
 				local msg = textType == "string" and text or spells[text or key]
 				local texture = icon ~= false and icons[icon or textType == "number" and text or key]
