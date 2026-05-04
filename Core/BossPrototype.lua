@@ -823,12 +823,23 @@ end
 --
 
 do
+	local function CopyTable(settingsTable)
+		local copy = {}
+		for key, value in next, settingsTable do
+			if type(value) == "table" then
+				copy[key] = CopyTable(value)
+			else
+				copy[key] = value
+			end
+		end
+		return copy
+	end
 	local moduleLocaleList = {}
 	--- Get the current localization strings.
 	-- @return keyed table of localized strings
 	function boss:GetLocale()
 		if moduleLocaleList[self] then
-			return moduleLocaleList[self]
+			return CopyTable(moduleLocaleList[self])
 		else -- DEPRECATED fallback
 			if not self.localization then
 				self.localization = {}
@@ -838,7 +849,6 @@ do
 	end
 	boss.NewLocale = boss.GetLocale -- DEPRECATED
 
-	local tfreeze = table.freeze or function() end
 	--- Set the default locale table.
 	-- @param localeTable the default locale table
 	function boss:SetDefaultLocale(localeTable)
@@ -852,7 +862,6 @@ do
 				localeTable[key] = value
 			end
 		end
-		tfreeze(localeTable)
 		moduleLocaleList[self] = localeTable
 		return localeTable
 	end
