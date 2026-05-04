@@ -109,7 +109,6 @@ BigWigs:AddColors("Crown of the Cosmos", {
 	[1233602] = {"blue","cyan"},
 	[1233787] = "purple",
 	[1233865] = "yellow",
-	[1237038] = "yellow",
 	[1237614] = "cyan",
 	[1237837] = "cyan",
 	[1238843] = "red",

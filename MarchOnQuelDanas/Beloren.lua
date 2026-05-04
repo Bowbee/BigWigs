@@ -59,7 +59,7 @@ local L = mod:SetDefaultLocale({
 -- Initialization
 --
 
-function mod:GetOptions() -- SetOption:skip-unused
+function mod:GetOptions()
 	return {
 		"stages",
 		-- "berserk", -- 1241267 Voidlight Rage
@@ -395,6 +395,9 @@ function mod:DeathDrop(duration)
 	return {
 		msg = CL.landing,
 		key = 1246709,
+		onEnd = function() -- not used, just for the parser
+			mod:Bar(1246709, 10)
+		end,
 	}
 end
 

@@ -757,6 +757,9 @@ function mod:SilverstrikeBarrage()
 	return {
 		msg = barText,
 		key = 1243982,
+		onEnd = function() -- not used, just for the parser
+			mod:Bar(1243982, 10)
+		end,
 	}
 end
 
@@ -909,7 +912,7 @@ function mod:VoidstalkerSting()
 		msg = barText,
 		key = 1237038,
 		onEnd = function() -- not used, just for the parser
-			self:Message(1237038, "yellow", barText)
+			mod:Bar(1237038, 10)
 		end,
 	}
 end
