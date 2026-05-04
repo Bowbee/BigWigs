@@ -46,15 +46,14 @@ local convergenceCount = 1
 -- Localization
 --
 
-local L = mod:GetLocale()
-if L then
-	L.infused_quills = "Quills"
-	L.voidlight_convergence = "Color Swaps"
+local L = mod:SetDefaultLocale({
+	infused_quills = "Quills",
+	voidlight_convergence = "Color Swaps",
 
-	L.light_void_dive = "Light/Void Dive"
-	L.light_void_dive_desc = 1241292
-	L.light_void_dive_icon = 1241292
-end
+	light_void_dive = "Light/Void Dive",
+	light_void_dive_desc = 1241292,
+	light_void_dive_icon = 1241292,
+})
 
 --------------------------------------------------------------------------------
 -- Initialization
