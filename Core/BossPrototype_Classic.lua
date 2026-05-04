@@ -928,6 +928,7 @@ do
 		end
 		tfreeze(localeTable)
 		moduleLocaleList[self] = localeTable
+		return localeTable
 	end
 end
 
