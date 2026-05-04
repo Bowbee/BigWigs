@@ -68,7 +68,7 @@ local INTERMISSION_DARK_QUASAR_INFO = {
 -- Localization
 --
 
-local L = mod:SetDefaultLocale({
+local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 	deaths_dirge = "Memory Game",
 	heavens_glaives = "Glaives",
 	heavens_lance = "Lance",

@@ -46,7 +46,7 @@ local convergenceCount = 1
 -- Localization
 --
 
-local L = mod:SetDefaultLocale({
+local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 	infused_quills = "Quills",
 	voidlight_convergence = "Color Swaps",
 
