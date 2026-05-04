@@ -634,7 +634,7 @@ end
 
 local function parseLocale(file)
 	-- check if this file has already been visited
-	if visit(file) then
+	if visit(file) or opt.ignore_locale then
 		return
 	end
 
@@ -664,6 +664,17 @@ local function parseLocale(file)
 	local line_number = 0
 	for line in data:gmatch("(.-)\r?\n") do
 		line_number = line_number + 1
+
+		do
+			local locale = line:match("BigWigsAPI%.IsLocale%(\"(.-)\"%)")
+			if locale then
+				if locale ~= file_locale then
+					error(string.format("    %s:%d: Invalid locale! %q should be %q", file, line_number, locale, file_locale))
+				end
+				-- new style is not supported yet
+				return
+			end
+		end
 
 		-- check for a new locale block in the locale file, and parse out the module name and locale from the block
 		local module_name, locale
@@ -855,8 +866,11 @@ local function parseLua(file)
 		end
 
 		-- parser options
-		if comment:find("SetOption:skip-unused", nil, true) then
-			opt.ignore_unused = true
+		if comment:find("SetOption:skip-unused", nil, true) and opt.ignore_unused ~= true then
+			opt.ignore_unused = module_name
+		end
+		if comment:find("SetOption:skip-locale", nil, true) and opt.ignore_locale ~= true then
+			opt.ignore_locale = module_name
 		end
 
 		-- set some module flags
@@ -915,7 +929,7 @@ local function parseLua(file)
 				if common_locale and not common_locale[locale_key] then
 					error(string.format("    %s:%d: Invalid locale string \"CL.%s\"", file_name, n, locale_key))
 				end
-			elseif locale_type == "L" and locale[locale_key] == nil then
+			elseif locale_type == "L" and locale[locale_key] == nil and not opt.ignore_locale then
 				error(string.format("    %s:%d: Invalid locale string \"L.%s\"", file_name, n, locale_key))
 			end
 			-- trying to invoke the string (missing :format)
@@ -949,20 +963,22 @@ local function parseLua(file)
 				-- mark private options as used
 				markPrivateOptions(option_keys, option_key_used)
 				-- check string keys
-				local custom_options = {
-					berserk = true,
-					altpower = true,
-					infobox = true,
-					proximity = true,
-					stages = true,
-					warmup = true,
-					adds = true,
-					health = true,
-					energy = true,
-				}
-				for key in next, option_keys do
-					if type(key) == "string" and not custom_options[key] and not key:find("^custom_") and locale[key] == nil then
-						error(string.format("    %s:%d: Missing option key locale for \"%s\"", file_name, options_block_start, key))
+				if not opt.ignore_locale then
+					local custom_options = {
+						berserk = true,
+						altpower = true,
+						infobox = true,
+						proximity = true,
+						stages = true,
+						warmup = true,
+						adds = true,
+						health = true,
+						energy = true,
+					}
+					for key in next, option_keys do
+						if type(key) == "string" and not custom_options[key] and not key:find("^custom_") and locale[key] == nil then
+							error(string.format("    %s:%d: Missing option key locale for \"%s\"", file_name, options_block_start, key))
+						end
 					end
 				end
 			end
@@ -1438,6 +1454,14 @@ local function parseLua(file)
 			end
 		end
 	end
+
+	-- reset ignores if set by the module
+	if opt.ignore_unused ~= true then
+		opt.ignore_unused = nil
+	end
+	if opt.ignore_locale ~= true then
+		opt.ignore_locale = nil
+	end
 end
 
 -- Read modules.xml and return a table of file paths.
@@ -1607,6 +1631,9 @@ if arg and #arg > 0 then
 			end
 			if v == "u" or v == "skip-unused" then
 				opt.ignore_unused = true
+			end
+			if v == "l" or v == "skip-locale" then
+				opt.ignore_locale = true
 			end
 		else
 			local path = v:gsub("\\", "/")
