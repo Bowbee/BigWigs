@@ -162,7 +162,7 @@ function mod:TimersMythic(_, eventInfo)
 	else
 		if durationRounded == 6 then
 			barInfo = self:DeathDrop(duration)
-		elseif durationRounded == 30 then
+		elseif durationRounded == 40 then
 			barInfo = self:Rebirth(duration)
 		end
 	end
@@ -224,7 +224,7 @@ function mod:TimersOther(_, eventInfo)
 	else
 		if durationRounded == 6 then
 			barInfo = self:DeathDrop(duration)
-		elseif durationRounded == 30 then
+		elseif durationRounded == 30 or durationRounded == 40 then
 			barInfo = self:Rebirth(duration)
 		end
 	end
