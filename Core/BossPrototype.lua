@@ -452,9 +452,6 @@ function boss:HasPrivateAuraSounds()
 end
 
 do
-	local AddPrivateAuraAppliedSound = C_UnitAuras.AddPrivateAuraAppliedSound
-	local RemovePrivateAuraAppliedSound = C_UnitAuras.RemovePrivateAuraAppliedSound
-	local InChatMessagingLockdown = C_ChatInfo.InChatMessagingLockdown or function() end
 	local modulesNeedingUpdated = {}
 	local frame = CreateFrame("Frame")
 	frame:SetScript("OnEvent", function(self, event, restrictionType, state)
@@ -466,6 +463,10 @@ do
 			modulesNeedingUpdated = {}
 		end
 	end)
+	--C_RestrictedActions.IsAddOnRestrictionActive(1) -- Enum.AddOnRestrictionType.Encounter = 1
+	local AddPrivateAuraAppliedSound = C_UnitAuras.AddPrivateAuraAppliedSound
+	local RemovePrivateAuraAppliedSound = C_UnitAuras.RemovePrivateAuraAppliedSound
+	local InChatMessagingLockdown = C_ChatInfo.InChatMessagingLockdown or function() end
 	function boss:RegisterPrivateAuraSounds()
 		if not self:HasPrivateAuraSounds() then return end
 
