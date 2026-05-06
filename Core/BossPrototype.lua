@@ -875,6 +875,31 @@ do
 	end
 end
 
+do
+	local moduleRenamesList = {}
+	--- Get the rename assosiated with this key and position.
+	-- @return string
+	function boss:GetRename(key, position)
+		if not position then position = 1 end
+		if not moduleRenamesList[self][key] or not moduleRenamesList[self][key][position] then
+			error(("Module %q has no rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+			return
+		else
+			return moduleRenamesList[self][key][position]
+		end
+	end
+
+	--- Assign a list of spell renames.
+	-- @param renamesTable the table storing the renames
+	function boss:SetRenames(renamesTable)
+		if moduleRenamesList[self] then
+			error(("Module %q already has a renames list set."):format(self.moduleName))
+			return
+		end
+		moduleRenamesList[self] = renamesTable
+	end
+end
+
 --- Create a custom marking option
 -- @bool state Boolean value to represent default state
 -- @string markType The type of string to return (player, npc, npc_aura)
