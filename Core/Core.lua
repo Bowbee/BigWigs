@@ -632,7 +632,22 @@ do
 							end
 						end
 					end
-					module.db = loader.db:RegisterNamespace(module.name, { profile = {renames = {}, toggles = module.toggleDefaults} })
+
+					-- Set up renames storage DB
+					local renames = {}
+					if module:HasRenames() then
+						for optionKey in next, module.toggleDefaults do
+							local renameCount = module:GetRenameCount(optionKey)
+							if renameCount then
+								renames[optionKey] = {}
+								for i = 1, renameCount do
+									renames[optionKey] = module:GetRenameDefault(optionKey, i)
+								end
+							end
+						end
+					end
+
+					module.db = loader.db:RegisterNamespace(module.name, { profile = {renames = renames, toggles = module.toggleDefaults} })
 					-- Option validation
 					for tableName, storageTable in next, module.db.profile do
 						if tableName ~= "renames" and tableName ~= "toggles" then

@@ -951,7 +951,7 @@ end
 
 do
 	local moduleRenamesList = {}
-	--- Get the rename assosiated with this key and position.
+	--- Get the current rename for this key and position.
 	-- @return string
 	function boss:GetRename(key, position)
 		if not position then position = 1 end
@@ -959,7 +959,70 @@ do
 			error(("Module %q has no rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
 			return
 		else
+			local db = self.db.profile.renames
+			local name = db[key] and db[key][position]
+			if not name then
+				error(("Module %q has no stored rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+				return
+			else
+				local nameType = type(name)
+				if nameType == "number" then
+					return spells[name]
+				else
+					return name
+				end
+			end
+		end
+	end
+
+	--- Get the default rename for this key and position.
+	-- @return string or number (spell ID)
+	function boss:GetRenameDefault(key, position)
+		if not position then position = 1 end
+		if not moduleRenamesList[self][key] or not moduleRenamesList[self][key][position] then
+			error(("Module %q has no rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+			return
+		else
 			return moduleRenamesList[self][key][position]
+		end
+	end
+
+	--- Get the note assosiated with this rename using its key and position.
+	-- @return string (note) if one exists, or nil
+	function boss:GetRenameNote(key, position)
+		if not position then position = 1 end
+		if not moduleRenamesList[self][key] or not moduleRenamesList[self][key][position] then
+			error(("Module %q has no rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+			return
+		elseif moduleRenamesList[self][key].notes then
+			return moduleRenamesList[self][key].notes[position]
+		end
+	end
+
+	--- Get the amount of renames for this key.
+	-- @return number or nil
+	function boss:GetRenameCount(key)
+		if moduleRenamesList[self][key] then
+			return #moduleRenamesList[self][key]
+		end
+	end
+
+	--- Get the original name assosiated with this rename using its key
+	-- @return string or number (spell ID)
+	function boss:GetRenameOriginal(key)
+		if not moduleRenamesList[self][key] then
+			error(("Module %q has no rename for key %q."):format(self.moduleName, tostring(key)))
+			return
+		else
+			return moduleRenamesList[self][key].original or key
+		end
+	end
+
+	--- Check if this module has a list of spell renames
+	-- @return boolean
+	function boss:HasRenames()
+		if moduleRenamesList[self] then
+			return true
 		end
 	end
 
