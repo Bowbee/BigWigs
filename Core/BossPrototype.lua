@@ -913,7 +913,7 @@ do
 		end
 	end
 
-	--- Get the note assosiated with this rename using its key and position.
+	--- Get the note associated with this rename using its key and position.
 	-- @return string (note) if one exists, or nil
 	function boss:GetRenameNote(key, position)
 		if not position then position = 1 end
@@ -933,7 +933,7 @@ do
 		end
 	end
 
-	--- Get the original name assosiated with this rename using its key
+	--- Get the original name associated with this rename using its key
 	-- @return string or number (spell ID)
 	function boss:GetRenameOriginal(key)
 		if not moduleRenamesList[self][key] then
@@ -969,7 +969,7 @@ end
 -- @number icon An icon id to be used for the option texture
 -- @param id The spell id or journal id to be translated into a name, or a string to represent an entry in the boss module locale table. "test" would look up CL.test
 -- @number ... a series of raid icons being used by the marker function e.g. (1, 2, 3)
--- @return an option string to be used in conjuction with :GetOption
+-- @return an option string to be used in conjunction with :GetOption
 function boss:AddMarkerOption(state, markType, icon, id, ...)
 	local moduleLocale = self:GetLocale()
 	local str = ""
@@ -999,7 +999,7 @@ end
 -- @bool state Boolean value to represent default state
 -- @string[opt] talkType The type of description to use ("boss" or nil for generic)
 -- @string[opt] name A unique name the option should have if you want to create multiple options in one module
--- @return an option string to be used in conjuction with :GetOption
+-- @return an option string to be used in conjunction with :GetOption
 function boss:AddAutoTalkOption(state, talkType, name)
 	if name and type(name) ~= "string" then
 		core:Error("Invalid auto talk name: ".. tostring(name))

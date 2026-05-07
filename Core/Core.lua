@@ -641,7 +641,7 @@ do
 							if renameCount then
 								renames[optionKey] = {}
 								for i = 1, renameCount do
-									renames[optionKey] = module:GetRenameDefault(optionKey, i)
+									renames[optionKey][i] = module:GetRenameDefault(optionKey, i)
 								end
 							end
 						end
