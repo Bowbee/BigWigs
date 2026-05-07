@@ -60,7 +60,7 @@ local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 --
 
 mod:SetRenames({
-	["stages"] = {CL.stage:format(1), CL.intermission, original = false, notes = {CL.stage:format(1), CL.intermission}}, -- Intermission
+	["stages"] = {CL.stage:format(1), CL.intermission, original = false, notes = {CL.stage:format(1), CL.intermission}}, -- Stages
 	[1242515] = {L.voidlight_convergence}, -- Voidlight Convergence (Color Swaps)
 	[1241282] = {CL.adds}, -- Embers of Beloren (Adds)
 	["light_void_dive"] = {CL.soaks, original = ("%s/%s"):format(mod:SpellName(1241292), mod:SpellName(1241339))}, -- Light/Void Dive (Soaks)
@@ -396,7 +396,7 @@ function mod:DeathDrop(duration)
 	convergenceCount = 1
 
 	if self:ShouldShowBars() then
-		self:Message("stages", "cyan", CL.count:format(CL.intermission, phaseCount), false)
+		self:Message("stages", "cyan", CL.count:format(self:GetRename("stages", 2), phaseCount), false) -- Intermission
 		self:PlaySound("stages", "long")
 	end
 	return {
@@ -412,7 +412,7 @@ end
 
 function mod:Rebirth(duration)
 	phaseCount = phaseCount + 1
-	local barText = CL.count:format(CL.stage:format(1), phaseCount)
+	local barText = CL.count:format(self:GetRename("stages"), phaseCount)
 
 	return {
 		msg = barText,
