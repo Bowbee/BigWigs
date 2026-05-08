@@ -637,10 +637,9 @@ do
 					local renames = {}
 					if module:HasRenames() then
 						for optionKey in next, module.toggleDefaults do
-							local renameCount = module:GetRenameCount(optionKey)
-							if renameCount then
+							if module:IsRenameAvailable(optionKey) then
 								renames[optionKey] = {}
-								for i = 1, renameCount do
+								for i = 1, module:GetRenameCount(optionKey) do
 									renames[optionKey][i] = module:GetRenameDefault(optionKey, i)
 								end
 							end

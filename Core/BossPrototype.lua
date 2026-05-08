@@ -875,6 +875,11 @@ do
 	end
 end
 
+-------------------------------------------------------------------------------
+-- Renames
+-- @section renames
+--
+
 do
 	local moduleRenamesList = {}
 	--- Get the current rename for this key and position.
@@ -926,9 +931,12 @@ do
 	end
 
 	--- Get the amount of renames for this key.
-	-- @return number or nil
+	-- @return number
 	function boss:GetRenameCount(key)
-		if moduleRenamesList[self][key] then
+		if not moduleRenamesList[self][key] then
+			error(("Module %q has no rename for key %q."):format(self.moduleName, tostring(key)))
+			return
+		else
 			return #moduleRenamesList[self][key]
 		end
 	end
@@ -946,6 +954,14 @@ do
 			else
 				return key
 			end
+		end
+	end
+
+	--- Check if this module has a rename set for this key
+	-- @return boolean
+	function boss:IsRenameAvailable(key)
+		if moduleRenamesList[self] and moduleRenamesList[self][key] then
+			return true
 		end
 	end
 
@@ -3958,7 +3974,12 @@ do
 			time = length
 		end
 		local textType = type(text)
-		local msg = textType == "string" and text or spells[text or key]
+		local msg
+		if not text and self:IsRenameAvailable(key) then
+			msg = self:GetRename(key, 1)
+		else
+			msg = textType == "string" and text or spells[text or key]
+		end
 		local isBarEnabled = checkFlag(self, key, C.BAR)
 		if isBarEnabled then
 			self:SendMessage("BigWigs_StartBar", self, key, msg, time, icons[icon or textType == "number" and text or key], false, maxTime, nil, eventId)
@@ -4007,7 +4028,12 @@ do
 			time = length
 		end
 		local textType = type(text)
-		local msg = textType == "string" and text or spells[text or key]
+		local msg
+		if not text and self:IsRenameAvailable(key) then
+			msg = self:GetRename(key, 1)
+		else
+			msg = textType == "string" and text or spells[text or key]
+		end
 		local isBarEnabled = checkFlag(self, key, C.BAR)
 		if checkFlag(self, key, C.BAR) then
 			self:SendMessage("BigWigs_StartBar", self, key, msg, time, icons[icon or textType == "number" and text or key], true, maxTime, nil, eventId)
