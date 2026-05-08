@@ -15,9 +15,6 @@ BigWigsAPI.SetBossModuleLocale("Midnight Falls", {
 	dark_rune = "記住符文",
 	dark_rune_bar = "排列符文", -- 解密、玩游戲、把符文按順續排列
 
-	starsplinter = "星辰破片", -- Mythic intermission and P4 bar text
-	starsplinter_you = "星辰破片",
-
 	left = "左：%s", -- left/west group bars in p3
 	right = "右：%s", -- right/east group bars in p3
 

@@ -15,9 +15,6 @@ BigWigsAPI.SetBossModuleLocale("Midnight Falls", {
 	dark_rune = "Marques du Memory",
 	dark_rune_bar = "Résoudre le Jeu",
 
-	starsplinter = "Flamboiements", -- Mythic intermission and P4 bar text
-	starsplinter_you = "Flambe",
-
 	left = "[G] %s", -- left/west group bars in p3
 	right = "[D] %s", -- right/east group bars in p3
 

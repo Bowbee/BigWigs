@@ -78,9 +78,6 @@ local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 	dark_rune = "Memory Mark",
 	dark_rune_bar = "Solve the Game",
 
-	starsplinter = "Blazes", -- Mythic intermission and P4 bar text
-	starsplinter_you = "Blaze",
-
 	left = "[L] %s", -- left/west group bars in p3
 	right = "[R] %s", -- right/east group bars in p3
 
@@ -112,7 +109,7 @@ mod:SetRenames({
 	[1267049] = {L.heavens_lance}, -- Heaven's Lance (Lance)
 	[1284980] = {L.deaths_dirge}, -- Grim Symphony (Memory Game)
 	[1284931] = {L.prism_kicks}, -- Termination Prism (Kicks)
-	[1282441] = {L.starsplinter, L.starsplinter_you, notes = {CL.plural, CL.singular}}, -- Starsplinter (Blazes)
+	[1282441] = {1282441}, -- Starsplinter
 	[1284525] = {CL.beams, CL.beam, notes = {CL.plural, CL.singular}}, -- Galvanize (Beams)
 	[1282412] = {CL.dodge}, -- Core Harvest (Dodge)
 	[1281194] = {CL.knockback}, -- Dark Meltdown (Knockback)
@@ -547,15 +544,13 @@ function mod:ENCOUNTER_WARNING(_, info)
 	if stage == 1 or stage == 3 then
 		if info.severity == 2 then -- Dark Rune
 			self:PersonalMessage(1249609, nil, self:GetRename(1249609)) -- Memory Mark
-			-- self:Bar(1249609, stage == 1 and 10 or 15, L.dark_rune_bar)
 		end
 	elseif stage == 2 or stage == 4 then
 		if info.severity == 2 then -- Galvanize
 			self:PersonalMessage(1284525, nil, self:GetRename(1284525, 2)) -- Beam
 		elseif info.severity == 1 then -- Starsplinter
 			-- (p2 is set on intermission start)
-			self:PersonalMessage(1282441, nil, self:GetRename(1282441, 2)) -- Blaze
-			-- self:Bar(1282441, 3, CL.you:format(L.starsplinter_you))
+			self:PersonalMessage(1282441, nil, self:GetRename(1282441))
 		end
 	end
 end
@@ -688,7 +683,7 @@ function mod:IntoTheDarkwell(duration)
 		self:Bar(1279420, 10.5, CL.count:format(self:GetRename(1279420), quasarCount)) -- Dark Quasar
 		self:ScheduleTimer("IntermissionDarkQuasar", 10.5)
 		if self:Mythic() then
-			self:Bar(1282441, 38, self:GetRename(1282441)) -- Starsplinter (Blazes)
+			self:Bar(1282441, 38, self:GetRename(1282441)) -- Starsplinter
 		end
 	end
 
@@ -910,7 +905,7 @@ function mod:CheckForPhaseFour()
 		starsplinterCount = 1
 		heavenHellCount = 1
 
-		self:Bar(1282441, 12.7, CL.count:format(self:GetRename(1282441), starsplinterCount)) -- Starsplinter (Blazes)
+		self:Bar(1282441, 12.7, CL.count:format(self:GetRename(1282441), starsplinterCount)) -- Starsplinter
 		self:ScheduleTimer("StarsplinterRepeater", 12.7)
 
 		self:Bar(1276525, 19.9, CL.count:format(self:GetRename(1276525), heavenHellCount))

@@ -15,9 +15,6 @@ BigWigsAPI.SetBossModuleLocale("Midnight Falls", {
 	dark_rune = "Runa",
 	dark_rune_bar = "Risolvi il gioco",
 
-	starsplinter = "Schegge", -- Mythic intermission and P4 bar text
-	starsplinter_you = "Scheggia",
-
 	left = "[S] %s", -- left/west group bars in p3
 	right = "[D] %s", -- right/east group bars in p3
 

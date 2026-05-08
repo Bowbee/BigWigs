@@ -15,9 +15,6 @@ BigWigsAPI.SetBossModuleLocale("Midnight Falls", {
 	--dark_rune = "Memory Mark",
 	--dark_rune_bar = "Solve the Game",
 
-	--starsplinter = "Blazes", -- Mythic intermission and P4 bar text
-	--starsplinter_you = "Blaze",
-
 	--left = "[L] %s", -- left/west group bars in p3
 	--right = "[R] %s", -- right/east group bars in p3
 

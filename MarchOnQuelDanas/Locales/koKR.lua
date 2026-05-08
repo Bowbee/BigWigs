@@ -15,9 +15,6 @@ BigWigsAPI.SetBossModuleLocale("Midnight Falls", {
 	dark_rune = "음표",
 	dark_rune_bar = "음표 게임",
 
-	starsplinter = "파열", -- Mythic intermission and P4 bar text
-	starsplinter_you = "파열",
-
 	left = "[왼] %s", -- left/west group bars in p3
 	right = "[오] %s", -- right/east group bars in p3
 
