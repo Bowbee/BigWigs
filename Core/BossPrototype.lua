@@ -940,7 +940,12 @@ do
 			error(("Module %q has no rename for key %q."):format(self.moduleName, tostring(key)))
 			return
 		else
-			return moduleRenamesList[self][key].original or key
+			local original = moduleRenamesList[self][key].original
+			if original or original == false then
+				return original
+			else
+				return key
+			end
 		end
 	end
 
