@@ -231,7 +231,7 @@ function mod:TimersOther(_, eventInfo)
 	else
 		if durationRounded == 6 then
 			barInfo = self:DeathDrop(duration)
-		elseif durationRounded == 30 or durationRounded == 40 then
+		elseif durationRounded == 40 then
 			barInfo = self:Rebirth(duration)
 		end
 	end
@@ -417,6 +417,7 @@ function mod:Rebirth(duration)
 	return {
 		msg = barText,
 		key = "stages",
+		icon = "inv_12_dualityphoenix_phoenix_rebirth",
 		endTime = GetTime() + duration + 1.5, -- XXX started canceling later after the edict hotfix?
 		onFinished = function()
 			isIntermission = false
