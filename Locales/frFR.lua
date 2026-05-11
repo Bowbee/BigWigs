@@ -380,7 +380,7 @@ L.autoRoleExplainer = "Lorsque vous rejoignez un groupe, ou que vous changez de 
 
 L.battleResTitle = "Rés. de combat"
 L.battleResDesc = "Une icône qui vous affiche combien de charges de résurrection de combat sont disponibles ainsi que le temps avant qu'une autre charge soit gagnée."
-L.battleResDesc2 = "\nVotre |cFF33FF99Historique de Résurrection de combat|r peut être vu dans l'infobulle lorsque vous placez votre souris sur l'icône.\n\n"
+L.battleResDesc2 = "\nVotre |cFF33FF99Historique de Résurrection de combat|r peut être vu dans l'infobulle lorsque vous placez votre souris sur l'icône.\nNote : Cette infobule ne s'affichera que lorsque vous êtes hors combat.\n\n"
 L.battleResHistory = "Historique de Résurrection de combat :"
 L.battleResResetAll = "Réinitialiser tous les paramètres de Résurrection de combat à leurs paramètres par défaut."
 L.battleResDurationText = "Texte de durée"

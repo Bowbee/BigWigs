@@ -380,7 +380,7 @@ L.autoRoleExplainer = "Cuando te unas a un grupo o cambies tu especialización d
 
 L.battleResTitle = "Res en Combate"
 --L.battleResDesc = "An icon that shows how many battle resurrection charges are available and the time until another charge is gained."
---L.battleResDesc2 = "\nYour |cFF33FF99Battle Resurrection History|r can be viewed in the tooltip when you mouse over the icon.\n\n"
+--L.battleResDesc2 = "\nYour |cFF33FF99Battle Resurrection History|r can be viewed in the tooltip when you mouse over the icon.\nNote: The tooltip will only show when you are out of combat.\n\n"
 --L.battleResHistory = "Battle Res History:"
 --L.battleResResetAll = "Reset all the Battle Resurrection settings to their default values."
 --L.battleResDurationText = "Duration Text"

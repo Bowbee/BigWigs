@@ -380,7 +380,7 @@ L.autoRoleExplainer = "Jedes mal, wenn einer Gruppe beigetreten wird, oder die T
 
 L.battleResTitle = "Battle Res"
 L.battleResDesc = "Zeigt ein Symbol an, welches die Anzahl der verfügbaren Battle Res Aufladungen sowie die Zeit bis zur nächsten Aufladung anzeigt."
-L.battleResDesc2 = "\nDer |cFF33FF99Battle Res Verlauf|r wird im Tooltip beim Überfahren des Symbols mit der Maus angezeigt.\n\n"
+L.battleResDesc2 = "\nDer |cFF33FF99Battle Res Verlauf|r wird im Tooltip beim Überfahren des Symbols mit der Maus angezeigt.\nHinweis: Dieser Tooltip wird nur außerhalb des Kampfes angezeigt.\n\n"
 L.battleResHistory = "Battle Res Verlauf:"
 L.battleResResetAll = "Alle Battle Res Einstellungen auf ihre Standardwerte zurücksetzen."
 L.battleResDurationText = "Dauer Text"

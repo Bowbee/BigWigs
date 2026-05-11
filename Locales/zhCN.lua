@@ -380,7 +380,7 @@ L.autoRoleExplainer = "当你加入一个队伍，或者在队伍中切换你的
 
 L.battleResTitle = "战复"
 L.battleResDesc = "新建一个图标，显示可用战复次数及下次获得额外次数所需时间。"
-L.battleResDesc2 = "\n你的 |cFF33FF99战复|r 使用记录可以通过将鼠标悬停在图标上时查看。\n\n"
+L.battleResDesc2 = "\n你的 |cFF33FF99战复|r 使用记录可以通过将鼠标悬停在图标上时查看。\n注意：此提示仅在脱离战斗后显示。\n\n"
 L.battleResHistory = "战复："
 L.battleResResetAll = "将所有战复设置重置为默认。"
 L.battleResDurationText = "时间文本"
