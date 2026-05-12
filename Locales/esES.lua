@@ -393,7 +393,6 @@ L.iconTextureSpellIDError = "Tienes que introducir un ID de hechizo válido para
 L.battleResModeIcon = "Modo: Icono"
 L.battleResModeText = "Modo: Solo texto"
 L.battleResModeTextTooltip = "Mostrar un fondo temporal para ayudar a mover la opción de Battle res y para ver el área del ratón."
-L.battleResNoteTooltip = "Aviso: Esta ventana de opciones solo se mostrará al estar fuera de combate."
 
 -----------------------------------------------------------------------
 -- CombatTimer.lua
