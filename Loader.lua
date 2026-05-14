@@ -1213,7 +1213,7 @@ do
 		for moduleName, storage in next, BigWigs3DB.namespaces do
 			if moduleName:find("BigWigs_Bosses_", nil, true) and type(storage) == "table" and storage.profiles then
 				for profileName, moduleTable in next, storage.profiles do
-					if type(moduleTable) == "table" and not moduleTable.toggles then
+					if type(moduleTable) == "table" and not moduleTable.toggles and not moduleTable.renames then
 						local newTable = {}
 						for optionKeyForBossToggle, valueOfBossToggle in next, moduleTable do
 							newTable[optionKeyForBossToggle] = valueOfBossToggle
