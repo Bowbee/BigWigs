@@ -352,6 +352,7 @@ L.toolsDesc = "BigWigs ofrece varias herramientas o características de \"calida
 
 L.reloadUIWarning = "Cambiar esta función recargará la interfaz, mostrando la pantalla de carga por un momento. ¿Estás seguro?"
 --L.qualityOfLife = "Quality of Life"
+--L.notYetImplemented = "Not Yet Implemented" -- When a feature hasn't been implemented yet
 
 -----------------------------------------------------------------------
 -- AutoInvite.lua

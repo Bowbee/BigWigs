@@ -352,6 +352,7 @@ L.toolsDesc = "BigWigs 提供了多種實用工具或便捷功能，讓你可以
 
 L.reloadUIWarning = "變更此功能需要重載介面，系統將會出現短暫的載入畫面。你確定要繼續嗎？"
 L.qualityOfLife = "便捷功能"
+--L.notYetImplemented = "Not Yet Implemented" -- When a feature hasn't been implemented yet
 
 -----------------------------------------------------------------------
 -- AutoInvite.lua
