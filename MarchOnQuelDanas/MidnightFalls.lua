@@ -89,6 +89,7 @@ local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 	custom_select_limit_warnings_value4 = "Show warnings for left side only.",
 	custom_select_limit_warnings_value5 = "Show warnings for right side only.",
 
+	dark_quasar_stage1_note = "Stage 1 Only",
 	dark_quasar_intermission_note = "Intermission Only",
 })
 
@@ -103,7 +104,7 @@ mod:SetRenames({
 		notes = {CL.intermission, CL.stage:format(2), CL.stage:format(3), CL.stage:format(4)}
 	}, -- Stages
 	[1253915] = {L.heavens_glaives}, -- Heaven's Glaives (Glaives)
-	[1279420] = {CL.beams}, -- Dark Quasar (Beams)
+	[1279420] = {CL.beams}, -- Dark Quasar (Beams) [Stage 1 Only]
 	[1249620] = {L.deaths_dirge}, -- Death's Dirge (Memory Game)
 	[1249609] = {CL.mark}, -- Dark Rune (Mark)
 	[1251386] = {L.prism_kicks}, -- Safeguard Prism (Kicks)
@@ -111,7 +112,7 @@ mod:SetRenames({
 	[1284980] = {L.deaths_dirge}, -- Grim Symphony (Memory Game)
 	[1284931] = {L.prism_kicks}, -- Termination Prism (Kicks)
 	[1282441] = {1282441}, -- Starsplinter
-	[1282469] = {CL.beams}, -- Dark Quasar (Beams)
+	[1282469] = {CL.beams}, -- Dark Quasar (Beams) [Intermission Only]
 	[1284525] = {CL.beams, CL.beam, notes = {CL.plural, CL.singular}}, -- Galvanize (Beams)
 	[1282412] = {CL.dodge}, -- Core Harvest (Dodge)
 	[1281194] = {CL.knockback}, -- Dark Meltdown (Knockback)
@@ -133,7 +134,7 @@ function mod:GetOptions()
 
 		-- Stage 1
 		1253915, -- Heaven's Glaives
-		1279420, -- Dark Quasar
+		1279420, -- Dark Quasar [Stage 1 Only]
 		1249620, -- Death's Dirge
 			{1249609, "ME_ONLY_EMPHASIZE"}, -- Dark Rune
 		1251386, -- Safeguard Prism
@@ -144,7 +145,7 @@ function mod:GetOptions()
 
 		-- Intermission
 		1282441, -- Starsplinter
-		1282469, -- Dark Quasar (Intermission Only)
+		1282469, -- Dark Quasar [Intermission Only]
 
 		-- Stage 2
 		1284525, -- Galvanize
@@ -168,6 +169,7 @@ function mod:GetOptions()
 		[1284525] = -33638, -- Stage Two: The Dark Reactor
 		[1250898] = -33639, -- Stage Three: Midnight Falls
 	},{
+		[1279420] = L.dark_quasar_stage1_note,
 		[1282469] = L.dark_quasar_intermission_note,
 	}
 end
