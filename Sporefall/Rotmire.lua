@@ -9,7 +9,7 @@ if not mod then return end
 mod:RegisterEnableMob(254176)
 mod:SetEncounterID(3159)
 mod:SetRespawnTime(30)
-mod:UseCustomTimers(false)
+mod:UseCustomTimers(true, true)
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -29,6 +29,18 @@ local festeringVinesCount = 1
 
 -- local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 -- })
+
+--------------------------------------------------------------------------------
+-- Renames
+--
+
+--mod:SetRenames({
+--	[1221622] = {}, -- Awaken Fungi ()
+--	[1221637] = {}, -- Fungal Bloom ()
+--	[1222088] = {}, -- Festering Vines ()
+--	[1221787] = {}, -- Bursting Pustules ()
+--	[1221781] = {}, -- Putrid Fist ()
+--})
 
 --------------------------------------------------------------------------------
 -- Options
@@ -57,9 +69,9 @@ end
 
 function mod:OnBossEnable()
 	backupBars = {}
-	-- self:RegisterEvent("ENCOUNTER_TIMELINE_EVENT_ADDED")
-	-- self:RegisterEvent("ENCOUNTER_TIMELINE_EVENT_STATE_CHANGED")
-	-- self:RegisterEvent("ENCOUNTER_TIMELINE_EVENT_REMOVED")
+	self:RegisterEvent("ENCOUNTER_TIMELINE_EVENT_ADDED")
+	self:RegisterEvent("ENCOUNTER_TIMELINE_EVENT_STATE_CHANGED")
+	self:RegisterEvent("ENCOUNTER_TIMELINE_EVENT_REMOVED")
 end
 
 function mod:OnEncounterStart()
@@ -78,7 +90,7 @@ end
 
 function mod:ENCOUNTER_TIMELINE_EVENT_ADDED(_, eventInfo)
 	if eventInfo.source ~= 0 or self:IsWiping() then return end
-	local barInfo
+	local barInfo = nil
 
 	local duration = eventInfo.duration
 	local durationRounded = self:RoundNumber(duration, 0)
@@ -91,7 +103,7 @@ function mod:ENCOUNTER_TIMELINE_EVENT_ADDED(_, eventInfo)
 			self:Bar(barInfo.key, barInfo.duration, barInfo.msg, barInfo.icon, eventInfo.id)
 		end
 	elseif barInfo == nil and self:ShouldShowBars() then
-		self:ErrorForTimelineEvent(eventInfo)
+		--self:ErrorForTimelineEvent(eventInfo)
 		backupBars[eventInfo.id] = true
 		self:SendMessage("BigWigs_StartBar", nil, nil, ("[B] %s"):format(eventInfo.spellName), eventInfo.duration, eventInfo.iconFileID, eventInfo.maxQueueDuration, nil, eventInfo.id, eventInfo.id)
 

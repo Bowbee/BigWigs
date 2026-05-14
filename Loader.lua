@@ -315,6 +315,7 @@ do
 				[2939] = "BigWigs_TheDreamrift",
 				[2912] = "BigWigs_TheVoidspire",
 				[2913] = "BigWigs_MarchOnQuelDanas",
+				[1592] = "BigWigs_Sporefall",
 			}
 		}
 	else -- Retail
@@ -1416,6 +1417,7 @@ do
 		BigWigs_TheVoidspire = true,
 		BigWigs_TheDreamrift = true,
 		BigWigs_MarchOnQuelDanas = true,
+		BigWigs_Sporefall = true,
 	}
 	-- Try to teach people not to force load our modules.
 	for i = 1, GetNumAddOns() do
