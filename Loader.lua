@@ -179,7 +179,7 @@ public.isTestBuild = IsPublicTestClient() -- PTR/beta
 do
 	local _, _, _, build = GetBuildInfo()
 	public.isBeta = public.isTestBuild and build >= 130000
-	public.isNext = build >= 120005
+	public.isNext = build >= 120007
 end
 
 -- Version
@@ -347,6 +347,7 @@ do
 				[2939] = "BigWigs_TheDreamrift",
 				[2912] = "BigWigs_TheVoidspire",
 				[2913] = "BigWigs_MarchOnQuelDanas",
+				[1592] = "BigWigs_Sporefall",
 			}
 		}
 	end
@@ -443,6 +444,7 @@ do
 		[2912] = mn, -- The Voidspire
 		[2913] = mn, -- March on Quel'Danas
 		[2939] = mn, -- The Dreamrift
+		[1592] = mn, -- Sporefall
 
 
 		--[[ LittleWigs: Classic ]]--

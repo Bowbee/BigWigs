@@ -28,6 +28,7 @@ move-folders:
     BigWigs/TheDreamrift: BigWigs_TheDreamrift
     BigWigs/MarchOnQuelDanas: BigWigs_MarchOnQuelDanas
     BigWigs/MidnightWorld: BigWigs_MidnightWorld
+    BigWigs/Sporefall: BigWigs_Sporefall
 
 ignore:
   - gen_option_values.lua
