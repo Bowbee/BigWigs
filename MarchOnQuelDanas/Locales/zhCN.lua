@@ -24,4 +24,6 @@ BigWigsAPI.SetBossModuleLocale("Midnight Falls", {
 	custom_select_limit_warnings_value3 = "显示两面的所有警报。",
 	custom_select_limit_warnings_value4 = "仅显示左面警报。",
 	custom_select_limit_warnings_value5 = "仅显示右面警报。",
+
+	--dark_quasar_intermission_note = "Intermission Only",
 })

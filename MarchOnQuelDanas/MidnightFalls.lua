@@ -88,6 +88,8 @@ local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 	custom_select_limit_warnings_value3 = "Show warnings for both sides.",
 	custom_select_limit_warnings_value4 = "Show warnings for left side only.",
 	custom_select_limit_warnings_value5 = "Show warnings for right side only.",
+
+	dark_quasar_intermission_note = "Intermission Only",
 })
 
 --------------------------------------------------------------------------------
@@ -109,6 +111,7 @@ mod:SetRenames({
 	[1284980] = {L.deaths_dirge}, -- Grim Symphony (Memory Game)
 	[1284931] = {L.prism_kicks}, -- Termination Prism (Kicks)
 	[1282441] = {1282441}, -- Starsplinter
+	[1282469] = {CL.beams}, -- Dark Quasar (Beams)
 	[1284525] = {CL.beams, CL.beam, notes = {CL.plural, CL.singular}}, -- Galvanize (Beams)
 	[1282412] = {CL.dodge}, -- Core Harvest (Dodge)
 	[1281194] = {CL.knockback}, -- Dark Meltdown (Knockback)
@@ -141,6 +144,7 @@ function mod:GetOptions()
 
 		-- Intermission
 		1282441, -- Starsplinter
+		1282469, -- Dark Quasar (Intermission Only)
 
 		-- Stage 2
 		1284525, -- Galvanize
@@ -157,12 +161,14 @@ function mod:GetOptions()
 		1276525, -- Heaven & Hell
 	},{
 		{ tabName = CL.stage:format(1), { "stages", 1253915, 1279420, 1249620, 1249609, 1251386, 1267049, 1284980, 1284931, } },
-		{ tabName = CL.intermission,    { "stages", 1282441, 1279420, } },
+		{ tabName = CL.intermission,    { "stages", 1282441, 1282469 } },
 		{ tabName = CL.stage:format(2), { "stages", 1284525, 1282412, 1267049, 1281194, } },
 		{ tabName = CL.stage:format(3), { "stages", "berserk", 1250898, 1266388, 1266897, 1267049, 1273158, 1276525, 1282441, } },
 		[1253915] = -32197, -- Stage One: Final Tolls
 		[1284525] = -33638, -- Stage Two: The Dark Reactor
 		[1250898] = -33639, -- Stage Three: Midnight Falls
+	},{
+		[1282469] = L.dark_quasar_intermission_note,
 	}
 end
 
@@ -679,7 +685,7 @@ function mod:IntoTheDarkwell(duration)
 	self:ResetCounts()
 
 	if self:ShouldShowBars() then
-		self:Bar(1279420, 10.5, CL.count:format(self:GetRename(1279420), quasarCount)) -- Dark Quasar
+		self:Bar(1282469, 10.5, CL.count:format(self:GetRename(1282469), quasarCount)) -- Dark Quasar
 		self:ScheduleTimer("IntermissionDarkQuasar", 10.5)
 		if self:Mythic() then
 			self:Bar(1282441, 38, self:GetRename(1282441)) -- Starsplinter
@@ -697,12 +703,12 @@ function mod:IntermissionDarkQuasar()
 	local info = INTERMISSION_DARK_QUASAR_INFO[self:Difficulty()]
 	if not info then return end
 
-	self:Message(1279420, "yellow", CL.count_amount:format(self:GetRename(1279420), quasarCount, info.count))
-	self:PlaySound(1279420, "alert")
+	self:Message(1282469, "yellow", CL.count_amount:format(self:GetRename(1282469), quasarCount, info.count))
+	self:PlaySound(1282469, "alert")
 	quasarCount = quasarCount + 1
 
 	if quasarCount <= info.count then
-		self:Bar(1279420, info.duration, CL.count_amount:format(self:GetRename(1279420), quasarCount, info.count))
+		self:Bar(1282469, info.duration, CL.count_amount:format(self:GetRename(1282469), quasarCount, info.count))
 		self:ScheduleTimer("IntermissionDarkQuasar", info.duration)
 	end
 end
