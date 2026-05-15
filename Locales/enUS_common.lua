@@ -235,10 +235,6 @@ L.rift = "Rift" -- Can be used in a similar way as a portal e.g. "Time Rift" but
 L.rifts = "Rifts" -- Plural of L.rift
 L.orb = "Orb" -- A ball/sphere object usually moving and you need to avoid it
 L.orbs = "Orbs" -- Plural for L.orb
-L.curse = "Curse" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
-L.curses = "Curses" -- Plural of L.curse
-L.disease = "Disease" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
-L.poison = "Poison" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
 L.spirit = "Spirit" -- Sometimes a boss will summon spirits, similar to ghosts, but not exactly, although you might have the same word for both. e.g. "Spirits of X" or "Wild Spirits"
 L.spirits = "Spirits" -- Plural of L.spirit
 L.tornado = "Tornado" -- 'A tornado is a violently rotating column of air that is in contact with both the surface of the Earth and a cloud' - Wikipedia
@@ -272,13 +268,24 @@ L.soaks = "Soaks" -- Plural of L.soak
 L.spike = "Spike" -- Short for any ability with the name "spike" in it e.g. "Glacial Spike" or "Fel Spike" or "Volatile Spike"
 L.spikes = "Spikes" -- Plural of L.spike
 L.spread = "Spread" -- An ability that forces you to spread out away from other players, or you might damage them
-L.tank_bomb = "Tank Bomb" -- Similar to L.bomb but only applies to tanks
-L.tank_combo = "Tank Combo" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
-L.tank_debuff = "Tank Debuff" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
-L.tank_frontal = "Tank Frontal" -- Similar to L.frontal_cone but only applies to tanks
-L.tank_soak = "Tank Soak" -- Similar to L.soak but only applies to tanks
 L.tentacle = "Tentacle" -- Used for bosses that summon tentacles
 L.tentacles = "Tentacles" -- Plural of L.tentacle
 L.waves = "Waves" -- Multiple waves of a bad ability coming from a boss, like waves in the ocean
 L.whelp = "Whelp" -- Short for Whelpling, a baby dragonkin (Dragon Whelp)
 L.whelps = "Whelps" -- Plural of L.whelp
+
+-- Dispel-related spell renames
+L.curse = "Curse" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
+L.curses = "Curses" -- Plural of L.curse
+L.disease = "Disease" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
+L.dispel = "Dispel" -- General term for any debuff that is dispellable
+L.dispels = "Dispels" -- Plural of L.dispel
+L.poison = "Poison" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
+
+-- Tank-related spell renames
+L.tank_bomb = "Tank Bomb" -- Similar to L.bomb but only applies to tanks
+L.tank_combo = "Tank Combo" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
+L.tank_debuff = "Tank Debuff" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
+L.tank_frontal = "Tank Frontal" -- Similar to L.frontal_cone but only applies to tanks
+L.tank_hit = "Tank Hit" -- An attack that will only target the tank, usually a spell that does a lot of heavy damage to the tank
+L.tank_soak = "Tank Soak" -- Similar to L.soak but only applies to tanks

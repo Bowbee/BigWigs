@@ -236,10 +236,6 @@ L.rift = "균열" -- Can be used in a similar way as a portal e.g. "Time Rift" b
 L.rifts = "균열" -- Plural of L.rift
 L.orb = "보주" -- A ball/sphere object usually moving and you need to avoid it
 L.orbs = "보주" -- Plural for L.orb
-L.curse = "저주" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
-L.curses = "저주" -- Plural of L.curse
-L.disease = "질병" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
-L.poison = "독" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
 L.spirit = "영혼" -- Sometimes a boss will summon spirits, similar to ghosts, but not exactly, although you might have the same word for both. e.g. "Spirits of X" or "Wild Spirits"
 L.spirits = "영혼" -- Plural of L.spirit
 L.tornado = "뇌우" -- 'A tornado is a violently rotating column of air that is in contact with both the surface of the Earth and a cloud' - Wikipedia
@@ -273,13 +269,24 @@ L.soaks = "맞아주기" -- Plural of L.soak
 L.spike = "가시" -- Short for any ability with the name "spike" in it e.g. "Glacial Spike" or "Fel Spike" or "Volatile Spike"
 L.spikes = "가시" -- Plural of L.spike
 L.spread = "산개" -- An ability that forces you to spread out away from other players, or you might damage them
-L.tank_bomb = "탱커 폭탄" -- Similar to L.bomb but only applies to tanks
-L.tank_combo = "탱커 연계기" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
-L.tank_debuff = "탱커 디버프" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
-L.tank_frontal = "탱커 정면기" -- Similar to L.frontal_cone but only applies to tanks
-L.tank_soak = "탱커 맞아주기" -- Similar to L.soak but only applies to tanks
 L.tentacle = "촉수" -- Used for bosses that summon tentacles
 L.tentacles = "촉수" -- Plural of L.tentacle
 L.waves = "웨이브" -- Multiple waves of a bad ability coming from a boss, like waves in the ocean
 L.whelp = "새끼용" -- Short for Whelpling, a baby dragonkin (Dragon Whelp)
 L.whelps = "새끼용" -- Plural of L.whelp
+
+-- Dispel-related spell renames
+L.curse = "저주" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
+L.curses = "저주" -- Plural of L.curse
+L.disease = "질병" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
+--L.dispel = "Dispel" -- General term for any debuff that is dispellable
+L.dispels = "해제" -- Plural of L.dispel
+L.poison = "독" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
+
+-- Tank-related spell renames
+L.tank_bomb = "탱커 폭탄" -- Similar to L.bomb but only applies to tanks
+L.tank_combo = "탱커 연계기" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
+L.tank_debuff = "탱커 디버프" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
+L.tank_frontal = "탱커 정면기" -- Similar to L.frontal_cone but only applies to tanks
+--L.tank_hit = "Tank Hit" -- An attack that will only target the tank, usually a spell that does a lot of heavy damage to the tank
+L.tank_soak = "탱커 맞아주기" -- Similar to L.soak but only applies to tanks

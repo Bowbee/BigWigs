@@ -236,10 +236,6 @@ L.rift = "Разлом" -- Can be used in a similar way as a portal e.g. "Time R
 L.rifts = "Разломы" -- Plural of L.rift
 L.orb = "Сфера" -- A ball/sphere object usually moving and you need to avoid it
 L.orbs = "Сферы" -- Plural for L.orb
-L.curse = "Проклятие" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
-L.curses = "Проклятия" -- Plural of L.curse
-L.disease = "Болезнь" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
-L.poison = "Яд" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
 L.spirit = "Дух" -- Sometimes a boss will summon spirits, similar to ghosts, but not exactly, although you might have the same word for both. e.g. "Spirits of X" or "Wild Spirits"
 L.spirits = "Духи" -- Plural of L.spirit
 L.tornado = "Торнадо" -- 'A tornado is a violently rotating column of air that is in contact with both the surface of the Earth and a cloud' - Wikipedia
@@ -273,13 +269,24 @@ L.soaks = "Соки" -- Plural of L.soak
 L.spike = "Шип" -- Short for any ability with the name "spike" in it e.g. "Glacial Spike" or "Fel Spike" or "Volatile Spike"
 L.spikes = "Шипы" -- Plural of L.spike
 L.spread = "Спредай" -- An ability that forces you to spread out away from other players, or you might damage them
-L.tank_bomb = "Бомба на танке" -- Similar to L.bomb but only applies to tanks
-L.tank_combo = "Танковское комбо" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
-L.tank_debuff = "Танк Дебафф" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
-L.tank_frontal = "Танк Фронтал" -- Similar to L.frontal_cone but only applies to tanks
-L.tank_soak = "Танк Соак" -- Similar to L.soak but only applies to tanks
 L.tentacle = "Щупальце" -- Used for bosses that summon tentacles
 L.tentacles = "Щупальца" -- Plural of L.tentacle
 L.waves = "Пельмени" -- Multiple waves of a bad ability coming from a boss, like waves in the ocean -- technically speaking "waves" is "Волны" but current tl is a very common name
 L.whelp = "Дракончик" -- Short for Whelpling, a baby dragonkin (Dragon Whelp)
 L.whelps = "Дракончики" -- Plural of L.whelp
+
+-- Dispel-related spell renames
+L.curse = "Проклятие" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
+L.curses = "Проклятия" -- Plural of L.curse
+L.disease = "Болезнь" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
+--L.dispel = "Dispel" -- General term for any debuff that is dispellable
+L.dispels = "Рассеивания" -- Plural of L.dispel
+L.poison = "Яд" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
+
+-- Tank-related spell renames
+L.tank_bomb = "Бомба на танке" -- Similar to L.bomb but only applies to tanks
+L.tank_combo = "Танковское комбо" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
+L.tank_debuff = "Танк Дебафф" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
+L.tank_frontal = "Танк Фронтал" -- Similar to L.frontal_cone but only applies to tanks
+--L.tank_hit = "Tank Hit" -- An attack that will only target the tank, usually a spell that does a lot of heavy damage to the tank
+L.tank_soak = "Танк Соак" -- Similar to L.soak but only applies to tanks

@@ -236,10 +236,6 @@ L.rift = "Falla" -- Can be used in a similar way as a portal e.g. "Time Rift" bu
 L.rifts = "Fallas" -- Plural of L.rift
 L.orb = "Orbe" -- A ball/sphere object usually moving and you need to avoid it
 L.orbs = "Orbes" -- Plural for L.orb
-L.curse = "Maldición" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
-L.curses = "Maldiciones" -- Plural of L.curse
-L.disease = "Enfermedad" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
-L.poison = "Veneno" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
 L.spirit = "Espíritu" -- Sometimes a boss will summon spirits, similar to ghosts, but not exactly, although you might have the same word for both. e.g. "Spirits of X" or "Wild Spirits"
 L.spirits = "Espíritus" -- Plural of L.spirit
 L.tornado = "Tornado" -- 'A tornado is a violently rotating column of air that is in contact with both the surface of the Earth and a cloud' - Wikipedia
@@ -273,13 +269,24 @@ L.soaks = "Soaks" -- Plural of L.soak
 L.spike = "Púa" -- Short for any ability with the name "spike" in it e.g. "Glacial Spike" or "Fel Spike" or "Volatile Spike"
 L.spikes = "Púas" -- Plural of L.spike
 L.spread = "Separarse" -- An ability that forces you to spread out away from other players, or you might damage them
-L.tank_bomb = "Bomba de Tanque" -- Similar to L.bomb but only applies to tanks
-L.tank_combo = "Combo de Tanque" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
-L.tank_debuff = "Debuff de Tanque" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
-L.tank_frontal = "Frontal de Tanque" -- Similar to L.frontal_cone but only applies to tanks
-L.tank_soak = "Soak de Tanque" -- Similar to L.soak but only applies to tanks
 L.tentacle = "Tentáculo" -- Used for bosses that summon tentacles
 L.tentacles = "Tentáculos" -- Plural of L.tentacle
 L.waves = "Olas" -- Multiple waves of a bad ability coming from a boss, like waves in the ocean
 L.whelp = "Cría" -- Short for Whelpling, a baby dragonkin (Dragon Whelp)
 L.whelps = "Crías" -- Plural of L.whelp
+
+-- Dispel-related spell renames
+L.curse = "Maldición" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
+L.curses = "Maldiciones" -- Plural of L.curse
+L.disease = "Enfermedad" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
+--L.dispel = "Dispel" -- General term for any debuff that is dispellable
+--L.dispels = "Dispels" -- Plural of L.dispel
+L.poison = "Veneno" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
+
+-- Tank-related spell renames
+L.tank_bomb = "Bomba de Tanque" -- Similar to L.bomb but only applies to tanks
+L.tank_combo = "Combo de Tanque" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
+L.tank_debuff = "Debuff de Tanque" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
+L.tank_frontal = "Frontal de Tanque" -- Similar to L.frontal_cone but only applies to tanks
+--L.tank_hit = "Tank Hit" -- An attack that will only target the tank, usually a spell that does a lot of heavy damage to the tank
+L.tank_soak = "Soak de Tanque" -- Similar to L.soak but only applies to tanks

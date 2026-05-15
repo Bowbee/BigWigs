@@ -236,10 +236,6 @@ L.rift = "裂隙" -- Can be used in a similar way as a portal e.g. "Time Rift" b
 L.rifts = "裂隙" -- Plural of L.rift
 L.orb = "宝珠" -- A ball/sphere object usually moving and you need to avoid it
 L.orbs = "宝珠" -- Plural for L.orb
-L.curse = "诅咒" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
-L.curses = "诅咒" -- Plural of L.curse
-L.disease = "疾病" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
-L.poison = "中毒" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
 L.spirit = "精魂" -- Sometimes a boss will summon spirits, similar to ghosts, but not exactly, although you might have the same word for both. e.g. "Spirits of X" or "Wild Spirits"
 L.spirits = "精魂" -- Plural of L.spirit
 L.tornado = "旋风" -- 'A tornado is a violently rotating column of air that is in contact with both the surface of the Earth and a cloud' - Wikipedia
@@ -273,13 +269,24 @@ L.soaks = "分摊" -- Plural of L.soak
 L.spike = "尖刺" -- Short for any ability with the name "spike" in it e.g. "Glacial Spike" or "Fel Spike" or "Volatile Spike"
 L.spikes = "尖刺" -- Plural of L.spike
 L.spread = "分散" -- An ability that forces you to spread out away from other players, or you might damage them
-L.tank_bomb = "坦克炸弹" -- Similar to L.bomb but only applies to tanks
-L.tank_combo = "坦克连击" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
-L.tank_debuff = "坦克减益" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
-L.tank_frontal = "坦克正面" -- Similar to L.frontal_cone but only applies to tanks
-L.tank_soak = "坦克分摊" -- Similar to L.soak but only applies to tanks
 L.tentacle = "触手" -- Used for bosses that summon tentacles
 L.tentacles = "触手" -- Plural of L.tentacle
 L.waves = "波浪" -- Multiple waves of a bad ability coming from a boss, like waves in the ocean
 L.whelp = "雏龙" -- Short for Whelpling, a baby dragonkin (Dragon Whelp)
 L.whelps = "雏龙" -- Plural of L.whelp
+
+-- Dispel-related spell renames
+L.curse = "诅咒" -- Any curse-type dispellable debuff, or debuffs called "Curse of XYZ", etc.
+L.curses = "诅咒" -- Plural of L.curse
+L.disease = "疾病" -- Any disease-type dispellable debuff, or debuffs called "Disease of XYZ", etc.
+--L.dispel = "Dispel" -- General term for any debuff that is dispellable
+L.dispels = "驱散" -- Plural of L.dispel
+L.poison = "中毒" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
+
+-- Tank-related spell renames
+L.tank_bomb = "坦克炸弹" -- Similar to L.bomb but only applies to tanks
+L.tank_combo = "坦克连击" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
+L.tank_debuff = "坦克减益" -- Used for debuffs that only apply to tanks, usually an indicator that you need to taunt
+L.tank_frontal = "坦克正面" -- Similar to L.frontal_cone but only applies to tanks
+--L.tank_hit = "Tank Hit" -- An attack that will only target the tank, usually a spell that does a lot of heavy damage to the tank
+L.tank_soak = "坦克分摊" -- Similar to L.soak but only applies to tanks
