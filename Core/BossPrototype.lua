@@ -912,6 +912,25 @@ do
 		end
 	end
 
+	--- Check if the rename for this key and position is currently set to default.
+	-- @return boolean
+	function boss:IsRenameDefault(key, position)
+		if not position then position = 1 end
+		if not moduleRenamesList[self][key] or not moduleRenamesList[self][key][position] then
+			error(("Module %q has no rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+			return
+		else
+			local db = self.db.profile.renames
+			local name = db[key] and db[key][position]
+			if not name then
+				error(("Module %q has no stored rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+				return
+			else
+				return moduleRenamesList[self][key][position] == name
+			end
+		end
+	end
+
 	--- Get the note associated with this rename using its key and position.
 	-- @return string (note) if one exists, or nil
 	function boss:GetRenameNote(key, position)
@@ -947,6 +966,30 @@ do
 				return original
 			else
 				return key
+			end
+		end
+	end
+
+	--- Check if the rename for this key and position is currently set to the original.
+	-- @return boolean
+	function boss:IsRenameOriginal(key, position)
+		if not position then position = 1 end
+		if not moduleRenamesList[self][key] or not moduleRenamesList[self][key][position] then
+			error(("Module %q has no rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+			return
+		else
+			local db = self.db.profile.renames
+			local name = db[key] and db[key][position]
+			if not name then
+				error(("Module %q has no stored rename for key %q at position %q."):format(self.moduleName, tostring(key), tostring(position)))
+				return
+			else
+				local original = moduleRenamesList[self][key].original
+				if original == false then
+					return original
+				else
+					return (original or key) == name
+				end
 			end
 		end
 	end
