@@ -866,8 +866,8 @@ function mod:InterruptingTremor()
 		onFinished = function()
 			self:StopBlizzMessages(1)
 			self:Message(1243743, "orange", barText)
-			self:PlaySound(1243743, "alert")
 			self:CastBar(1243743, 5)
+			self:PlaySound(1243743, "alert")
 		end,
 	}
 end
@@ -985,8 +985,8 @@ function mod:DevouringCosmos()
 			stingCount = 1
 
 			self:Message(1238843, "red", barText)
-			self:PlaySound(1238843, "long")
 			self:StopBlizzMessages(1)
+			self:PlaySound(1238843, "long")
 		end,
 	}
 end

@@ -543,8 +543,8 @@ function mod:Consume(eventInfo)
 		msg = barText,
 		onFinished = function()
 			self:Message(1245396, "red", barText)
-			self:PlaySound(1245396, "warning") -- finish adds
 			self:StopBlizzMessages(0.2)
+			self:PlaySound(1245396, "warning") -- finish adds
 		end
 	}
 end
@@ -575,8 +575,8 @@ do
 			msg = barText,
 			onFinished = function()
 				self:Message(1245486, "red", barText)
-				self:PlaySound(1245486, "warning") -- dodge
 				self:StopBlizzMessages(0.4)
+				self:PlaySound(1245486, "warning") -- dodge
 			end
 		}
 	end
@@ -591,11 +591,6 @@ do
 			scheduledEnd = nil
 		end
 		scheduledEnd = self:ScheduleTimer(function()
-				if self:ShouldShowBars() then
-					self:Message(1245406, "cyan", CL.stage:format(1), false)
-					self:PlaySound(1245406, "long") -- next stage
-					self:StopBlizzMessages(1.5)
-				end
 				self:SetStage(1)
 				almdustUpheavalCount = 1
 				riftEmergenceCount = 1
@@ -606,6 +601,11 @@ do
 				corruptedDevastationCount = 1
 				durationCount = {}
 				scheduledEnd = nil
+				if self:ShouldShowBars() then
+					self:Message(1245406, "cyan", CL.stage:format(1), false)
+					self:StopBlizzMessages(1.5)
+					self:PlaySound(1245406, "long") -- next stage
+				end
 			end, eventInfo.duration)
 
 		local barText = CL.stage:format(1) -- Do we want a count here?

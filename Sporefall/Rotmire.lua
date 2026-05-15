@@ -188,8 +188,8 @@ function mod:AwakenFungi(duration)
 		key = 1221622,
 		onFinished = function()
 			self:Message(1221622, "cyan", barText)
-			self:PlaySound(1221622, "info", "adds")
 			self:StopBlizzMessages(1)
+			self:PlaySound(1221622, "info", "adds")
 		end
 	}
 end
@@ -202,8 +202,8 @@ function mod:FungalBloom(duration)
 		key = 1221637,
 		onFinished = function()
 			self:Message(1221637, "yellow", barText)
-			-- self:PlaySound(1221637, "alert")
 			self:StopBlizzMessages(1)
+			-- self:PlaySound(1221637, "alert")
 		end
 	}
 end
@@ -216,8 +216,8 @@ function mod:FesteringVines(duration)
 		key = 1222088,
 		onFinished = function()
 			self:Message(1222088, "yellow", barText)
-			-- self:PlaySound(1222088, "alert")
 			self:PersonalMessageFromBlizzMessage(1222088, 0.5, nil, self:SpellName(1222088))
+			-- self:PlaySound(1222088, "alert")
 		end
 	}
 end

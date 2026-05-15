@@ -300,11 +300,11 @@ function mod:EmbersOfBeloren(duration)
 		msg = barText,
 		key = 1241282,
 		onFinished = function()
-			self:Message(1241282, "cyan", barText)
-			self:PlaySound(1241282, "info", "adds")
-
 			-- if the adds spawn, they don't do away on phase, so no need to stop this
 			self:Bar("light_void_dive", 9, diveBarText, 1241292)
+
+			self:Message(1241282, "cyan", barText)
+			self:PlaySound(1241282, "info", "adds")
 		end,
 	}
 end
@@ -423,9 +423,9 @@ function mod:Rebirth(duration)
 			isIntermission = false
 			if self:ShouldShowBars() and not self:IsWiping() then
 				self:Message("stages", "cyan", barText, false)
-				self:PlaySound("stages", "info")
 
 				self:Bar(1242515, 4.5, CL.count:format(self:GetRename(1242515), convergenceCount))
+				self:PlaySound("stages", "info")
 			end
 		end,
 		onCanceled = function(barInfo)

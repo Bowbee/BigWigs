@@ -706,13 +706,14 @@ function mod:IntermissionDarkQuasar()
 	if not info then return end
 
 	self:Message(1282469, "yellow", CL.count_amount:format(self:GetRename(1282469), quasarCount, info.count))
-	self:PlaySound(1282469, "alert")
 	quasarCount = quasarCount + 1
 
 	if quasarCount <= info.count then
 		self:Bar(1282469, info.duration, CL.count_amount:format(self:GetRename(1282469), quasarCount, info.count))
 		self:ScheduleTimer("IntermissionDarkQuasar", info.duration)
 	end
+
+	self:PlaySound(1282469, "alert")
 end
 
 -- Phase 2
@@ -729,12 +730,11 @@ function mod:DarkMeltdown(duration)
 		icon = 1281194,
 		onFinished = function()
 			self:SetStage(3)
-			self:Message("stages", "cyan", self:GetRename("stages", 3), false) -- Stage 3
-			self:PlaySound("stages", "long")
-
 			self:ResetCounts()
 
 			self:Bar(1281194, 8, self:GetRename(1281194)) -- Dark Meltdown
+			self:Message("stages", "cyan", self:GetRename("stages", 3), false) -- Stage 3
+			self:PlaySound("stages", "long")
 		end
 	}
 end
@@ -906,9 +906,6 @@ function mod:CheckForPhaseFour()
 		self:StopBar(1249796) -- Shattered Sky
 
 		self:SetStage(4)
-		self:Message("stages", "cyan", self:GetRename("stages", 4), false) -- Stage 4
-		self:PlaySound("stages", "long")
-
 		starsplinterCount = 1
 		heavenHellCount = 1
 
@@ -924,6 +921,9 @@ function mod:CheckForPhaseFour()
 			self:Message("berserk", "red", CL.casting:format(self:SpellName(1287447)), 1287447) -- Midnight Perpetual
 			self:PlaySound("berserk", "alarm")
 		end, 79-4)
+
+		self:Message("stages", "cyan", self:GetRename("stages", 4), false) -- Stage 4
+		self:PlaySound("stages", "long")
 	end
 end
 
@@ -936,8 +936,8 @@ end
 
 function mod:HeavenHellRepeater()
 	self:Message(1276525, "red", CL.count:format(self:GetRename(1276525), heavenHellCount))
-	self:PlaySound(1276525, "alert")
 	heavenHellCount = heavenHellCount + 1
 	self:Bar(1276525, 20, CL.count:format(self:GetRename(1276525), heavenHellCount))
 	self:ScheduleTimer("HeavenHellRepeater", 20)
+	self:PlaySound(1276525, "alert")
 end

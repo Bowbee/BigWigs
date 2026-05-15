@@ -656,8 +656,8 @@ function mod:MidnightFlames(eventInfo)
 		msg = barText,
 		onFinished = function()
 			self:Message(1249748, "yellow", barText)
-			self:PlaySound(1249748, "alert")
 			self:StopBlizzMessages(0.2)
+			self:PlaySound(1249748, "alert")
 		end,
 		this = self.MidnightFlames
 	}
@@ -690,8 +690,8 @@ function mod:Nullbeam(eventInfo)
 		msg = barText,
 		onFinished = function()
 			self:Message(1262623, "yellow", barText)
-			self:PlaySound(1262623, "alert")
 			self:StopBlizzMessages(0.2)
+			self:PlaySound(1262623, "alert")
 		end,
 		this = self.Nullbeam
 	}
@@ -743,8 +743,8 @@ function mod:Gloom(eventInfo)
 		msg = barText,
 		onFinished = function()
 			self:Message(1245391, "orange", barText)
-			self:PlaySound(1245391, "alert") -- possibly soak
 			self:StopBlizzMessages(0.2)
+			self:PlaySound(1245391, "alert") -- possibly soak
 		end,
 		this = self.Gloom
 	}

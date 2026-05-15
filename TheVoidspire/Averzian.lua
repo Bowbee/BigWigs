@@ -268,8 +268,8 @@ function mod:ShadowsAdvance(eventInfo)
 		key = 1251361,
 		onFinished = function()
 			self:Message(1251361, "cyan", barText)
-			self:PlaySound(1251361, "long")
 			self:Bar(1262036, self:Mythic() and 38.5 or 23.5, CL.count:format(CL.beams, count)) -- Void Rupture
+			self:PlaySound(1251361, "long")
 		end
 	}
 end

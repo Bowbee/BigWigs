@@ -652,8 +652,8 @@ function mod:AuraOfWrath(eventInfo)
 		onFinished = function()
 			if self:ShouldShowBars() then
 				self:Message(1248449, "cyan", barText)
-				self:PlaySound(1248449, "long") -- Aura enabled
 				self:StopBlizzMessages(0.5)
+				self:PlaySound(1248449, "long") -- Aura enabled
 			end
 		end,
 		this = self.AuraOfWrath
@@ -690,8 +690,8 @@ function mod:AuraOfDevotion(eventInfo)
 		onFinished = function()
 			if self:ShouldShowBars() then
 				self:Message(1246162, "cyan", barText)
-				self:PlaySound(1246162, "long") -- Aura enabled
 				self:StopBlizzMessages(0.5)
+				self:PlaySound(1246162, "long") -- Aura enabled
 			end
 		end,
 		this = self.AuraOfDevotion
@@ -733,11 +733,6 @@ function mod:AuraOfPeace(eventInfo)
 	return {
 		msg = barText,
 		onFinished = function()
-			if self:ShouldShowBars() then
-				self:Message(1248451, "cyan", barText)
-				self:PlaySound(1248451, "long")
-				self:StopBlizzMessages(0.5)
-			end
 			if not self:Mythic() then
 				if self:ShouldShowBars() then
 					-- as this cast can be delayed, update the remaining time and cancel it in 5s
@@ -746,6 +741,11 @@ function mod:AuraOfPeace(eventInfo)
 				self:ScheduleTimer(function()
 					self:ENCOUNTER_TIMELINE_EVENT_REMOVED(nil, -eventInfo.id)
 				end, 0.5)
+			end
+			if self:ShouldShowBars() then
+				self:Message(1248451, "cyan", barText)
+				self:StopBlizzMessages(0.5)
+				self:PlaySound(1248451, "long")
 			end
 		end,
 		onCanceled = function()
