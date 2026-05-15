@@ -47,7 +47,6 @@ local corruptedDevastationCount = 1
 local L = mod:GetLocale()
 if L then
 	L.rift_madness = "Madness" -- Short for Rift Madness
-	L.consuming_miasma = "Dispels" -- Move to common?
 end
 
 --------------------------------------------------------------------------------
@@ -79,13 +78,13 @@ function mod:GetOptions()
 		[1262289] = CL.soak, -- Alndust Upheaval (Soak)
 		[1258610] = CL.adds, -- Rift Emergence (Adds)
 		[1264756] = L.rift_madness, -- Rift Madness (Madness)
-		[1257087] = L.consuming_miasma, -- Consuming Miasma (Dispels)
+		[1257087] = CL.dispels, -- Consuming Miasma (Dispels)
 		[1246653] = CL.raid_damage, -- Caustic Phlegm (Raid Damage)
 		[1272726] = CL.frontal_cone, -- Rending Tear (Frontal Cone)
 		[1245486] = CL.breath, -- Corrupted Devastation (Breath)
 		[1245406] = CL.stage:format(1), -- Ravenous Dive (Stage 1)
 		[1246621] = CL.raid_damage, -- Caustic Phlegm (Raid Damage)
-		[1257085] = L.consuming_miasma, -- Consuming Miasma (Dispels)
+		[1257085] = CL.dispels, -- Consuming Miasma (Dispels)
 	}
 end
 
@@ -486,7 +485,7 @@ end
 
 -- Consuming Miasma
 function mod:ConsumingMiasma(eventInfo)
-	local barText = CL.count:format(L.consuming_miasma, consumingMiasmaCount)
+	local barText = CL.count:format(CL.dispels, consumingMiasmaCount)
 	if self:ShouldShowBars() then
 		self:Bar(1257087, eventInfo.duration, barText, nil, eventInfo.id)
 	end
@@ -636,7 +635,7 @@ end
 
 -- Consuming Miasma (Stage 2)
 function mod:ConsumingMiasmaStage2(eventInfo)
-	local barText = CL.count:format(L.consuming_miasma, consumingMiasmaCount)
+	local barText = CL.count:format(CL.dispels, consumingMiasmaCount)
 	if self:ShouldShowBars() then
 		self:Bar(1257085, eventInfo.duration, barText, nil, eventInfo.id)
 	end
