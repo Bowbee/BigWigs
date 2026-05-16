@@ -283,6 +283,11 @@ L.disease = "Krankheit" -- Any disease-type dispellable debuff, or debuffs calle
 --L.dispels = "Dispels" -- Plural of L.dispel
 L.poison = "Gift" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
 
+-- Interrupt-related spell renames
+--L.interrupts = "Interrupts" -- General term used when a player needs to interrupt a spell being cast
+L.kick = "Tritt" -- General term used when a player needs to interrupt a spell being cast, named after spell "Kick" (1766) from the Rogue class
+--L.kicks = "Kicks" -- Plural of L.kick
+
 -- Tank-related spell renames
 L.tank_bomb = "Tank Bombe" -- Similar to L.bomb but only applies to tanks
 L.tank_combo = "Tank Kombi" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks

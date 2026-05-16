@@ -282,6 +282,11 @@ L.dispel = "Dispel" -- General term for any debuff that is dispellable
 L.dispels = "Dispels" -- Plural of L.dispel
 L.poison = "Poison" -- Any poison-type dispellable debuff, or debuffs called "Poison of XYZ", etc.
 
+-- Interrupt-related spell renames
+L.interrupts = "Interrupts" -- General term used when a player needs to interrupt a spell being cast
+L.kick = "Kick" -- General term used when a player needs to interrupt a spell being cast, named after spell "Kick" (1766) from the Rogue class
+L.kicks = "Kicks" -- Plural of L.kick
+
 -- Tank-related spell renames
 L.tank_bomb = "Tank Bomb" -- Similar to L.bomb but only applies to tanks
 L.tank_combo = "Tank Combo" -- Used for tank swap mechanics where the boss casts a sequence of tank buster attacks
