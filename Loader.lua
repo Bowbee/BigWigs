@@ -1141,11 +1141,11 @@ do
 	end
 end
 
--- XXX 12.0.1 s1
---if public.isRetail and not BW_FEAT_ENHANCE then
---	BW_FEAT_ENHANCE = true
+-- XXX 12.0.5
+--if public.isRetail and not BW_FEAT_RENAMES then
+--	BW_FEAT_RENAMES = true
 --	if BigWigs3DB then -- No popup for fresh users
---		Popup(L.enhancedModeWelcome, true, 250)
+--		Popup(L.tempRenameFeat, true, 180)
 --	end
 --end
 
@@ -1959,10 +1959,10 @@ do
 			bwFrame:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
 
 			-- XXX 12.0.5
-			if public.isRetail and C_ScenarioInfo.GetUnitCriteriaProgressValues and public.currentExpansion.currentSeason[instanceID] and not BW_FEAT_M_PERCENT then
-				BW_FEAT_M_PERCENT = true
-				Popup(L.tempProgressAnnounce, true, 220)
-			end
+			--if public.isRetail and C_ScenarioInfo.GetUnitCriteriaProgressValues and public.currentExpansion.currentSeason[instanceID] and not BW_FEAT_M_PERCENT then
+			--	BW_FEAT_M_PERCENT = true
+			--	Popup(L.tempProgressAnnounce, true, 220)
+			--end
 		else
 			if disabledZones[instanceID] then -- We have a content addon for the this zone but it is disabled in the addons menu
 				local msg = L.disabledAddOn:format(disabledZones[instanceID])

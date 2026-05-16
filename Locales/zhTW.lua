@@ -2,6 +2,8 @@ local _, addonTbl = ...
 local L = addonTbl.API:NewLocale("BigWigs", "zhTW")
 if not L then return end
 
+--L.tempRenameFeat = "You can now |cFF436EEErename|r any boss ability by opening its advanced settings (>>) and clicking the renames tab."
+
 -- API.lua
 L.showAddonBar = "插件「|cFF436EEE%s|r」創建了「%s」計時器。"
 L.requestAddonProfile = "插件「|cFF436EEE%s|r」剛剛複製了你的設定檔匯出字串。"
@@ -616,7 +618,6 @@ L.progressPercentTooltipText = {
 L.progressPercentNameplate = "在敵方名條顯示進度百分比"
 L.progressCurrentPull = "當前拉怪進度"
 L.progressCurrentPullDesc = "顯示當前這波戰鬥能提供多少進度。\n\n此功能尚未實裝！"
-L.tempProgressAnnounce = "現在，可以在浮動資訊提示和名條上顯示進度。\n\n請至 |cFF436EEE工具|r > |cFF436EEE傳奇鑰石+|r > |cFF436EEE進度 %|r 設定。"
 --L.settingsForCurrentTarget = "Settings for your current target"
 --L.settingsForOtherTargets = "Settings for all other targets"
 

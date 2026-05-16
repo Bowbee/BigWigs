@@ -2,6 +2,8 @@ local _, addonTbl = ...
 local L = addonTbl.API:NewLocale("BigWigs", "itIT")
 if not L then return end
 
+--L.tempRenameFeat = "You can now |cFF436EEErename|r any boss ability by opening its advanced settings (>>) and clicking the renames tab."
+
 -- API.lua
 L.showAddonBar = "L'addon '|cFF436EEE%s|r' ha creato la barra '%s'."
 L.requestAddonProfile = "L'addon '|cFF436EEE%s|r' ha appena creato una copia della stringa di esportazione del tuo profilo."
@@ -616,7 +618,6 @@ L.dungeonTeleportHeader = "|TInterface\\AddOns\\BigWigs\\Media\\Icons\\minimap_r
 --L.progressPercentNameplate = "Show progress % on nameplates of enemy NPCs"
 --L.progressCurrentPull = "Current Pull"
 --L.progressCurrentPullDesc = "Show total progress you will gain from the current group of NPCs you are in combat with.\n\nNOT YET FUNCTIONAL!"
---L.tempProgressAnnounce = "You can now see progress % each NPC will give you when mousing over them and on their nameplates.\n\nConfigure in |cFF436EEETools|r > |cFF436EEEMythic+|r > |cFF436EEEProgress %|r."
 --L.settingsForCurrentTarget = "Settings for your current target"
 --L.settingsForOtherTargets = "Settings for all other targets"
 

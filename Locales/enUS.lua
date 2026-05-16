@@ -1,6 +1,8 @@
 local _, addonTbl = ...
 local L = addonTbl.API:NewLocale("BigWigs", "enUS")
 
+L.tempRenameFeat = "You can now |cFF436EEErename|r any boss ability by opening its advanced settings (>>) and clicking the renames tab."
+
 -- API.lua
 L.showAddonBar = "The addon '|cFF436EEE%s|r' created the '%s' bar."
 L.requestAddonProfile = "The addon '|cFF436EEE%s|r' just made a copy of your profile export string."
@@ -615,7 +617,6 @@ L.progressPercentTooltipText = {
 L.progressPercentNameplate = "Show progress % on nameplates of enemy NPCs"
 L.progressCurrentPull = "Current Pull"
 L.progressCurrentPullDesc = "Show total progress you will gain from the current group of NPCs you are in combat with.\n\nNOT YET FUNCTIONAL!"
-L.tempProgressAnnounce = "You can now see progress % each NPC will give you when mousing over them and on their nameplates.\n\nConfigure in |cFF436EEETools|r > |cFF436EEEMythic+|r > |cFF436EEEProgress %|r."
 L.settingsForCurrentTarget = "Settings for your current target"
 L.settingsForOtherTargets = "Settings for all other targets"
 

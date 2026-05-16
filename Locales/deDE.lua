@@ -2,6 +2,8 @@ local _, addonTbl = ...
 local L = addonTbl.API:NewLocale("BigWigs", "deDE")
 if not L then return end
 
+--L.tempRenameFeat = "You can now |cFF436EEErename|r any boss ability by opening its advanced settings (>>) and clicking the renames tab."
+
 -- API.lua
 L.showAddonBar = "Das Addon '|cFF436EEE%s|r' hat die Leiste '%s' erstellt."
 L.requestAddonProfile = "Das Addon '|cFF436EEE%s|r' hat gerade eine Kopie des Profil Export-Strings erstellt."
@@ -616,7 +618,6 @@ L.progressPercentTooltipText = {
 L.progressPercentNameplate = "Fortschritt in % an Namensplaketten von Gegnern anzeigen"
 L.progressCurrentPull = "Aktueller Pull"
 L.progressCurrentPullDesc = "Gesamtfortschritt, der durch die im Kampf befindlichen Gegner erhalten wird, anzeigen.\n\nNOCH NICHT FUNKTIONSTÜCHTIG!"
-L.tempProgressAnnounce = "Es kann jetzt der Fortschrittsbeitrag in % eines Gegners beim Überfahren mit der Maus und an den Namensplaketten angezeigt werden.\n\nKonfigurieren in |cFF436EEEWerkzeuge|r > |cFF436EEEMythisch+|r > |cFF436EEEFortschritt %|r."
 L.settingsForCurrentTarget = "Einstellungen für das aktuelle Ziel"
 L.settingsForOtherTargets = "Einstellungen für alle anderen Ziele"
 
