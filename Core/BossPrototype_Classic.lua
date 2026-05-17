@@ -3260,7 +3260,13 @@ function boss:Message(key, color, text, icon, disableEmphasize, customDisplayTim
 	if self:CanPassRoleRestrictions(key) then
 		local isEmphasized = not disableEmphasize and self:CheckFlag(key, C.EMPHASIZE)
 		if self:CheckFlag(key, C.MESSAGE) or isEmphasized then
-			self:SendMessage("BigWigs_Message", self, key, type(text) == "string" and text or spells[text or key], color, icon ~= false and icons[icon or key], isEmphasized, customDisplayTime)
+			local msg
+			if not text and self:IsRenameAvailable(key) then
+				msg = self:GetRename(key, 1)
+			else
+				msg = type(text) == "string" and text or spells[text or key]
+			end
+			self:SendMessage("BigWigs_Message", self, key, msg, color, icon ~= false and icons[icon or key], isEmphasized, customDisplayTime)
 		end
 	end
 end
@@ -3275,7 +3281,12 @@ function boss:PersonalMessage(key, localeString, text, icon)
 		local isEmphasized = self:CheckFlag(key, C.EMPHASIZE) or self:CheckFlag(key, C.ME_ONLY_EMPHASIZE)
 		if self:CheckFlag(key, C.MESSAGE) or isEmphasized then
 			local str = localeString and CL[localeString] or CL.you
-			local msg = localeString == false and text or format(str, type(text) == "string" and text or spells[text or key])
+			local msg
+			if not text and self:IsRenameAvailable(key) then
+				msg = localeString == false and self:GetRename(key, 1) or format(str, self:GetRename(key, 1))
+			else
+				msg = localeString == false and text or format(str, type(text) == "string" and text or spells[text or key])
+			end
 			self:SendMessage("BigWigs_Message", self, key, msg, "blue", icon ~= false and icons[icon or key], isEmphasized)
 		end
 	end
@@ -3307,17 +3318,22 @@ end
 -- @param[opt] icon the message icon (spell id or texture name)
 function boss:StackMessage(key, color, player, stack, noEmphUntil, text, icon)
 	if self:CanPassRoleRestrictions(key) then
-		local textType = type(text)
+		local msg
+		if not text and self:IsRenameAvailable(key) then
+			msg = self:GetRename(key, 1)
+		else
+			msg = type(text) == "string" and text or spells[text or key]
+		end
 		local amount = stack or 1
 		if player == myName then
 			local isEmphasized = (self:CheckFlag(key, C.EMPHASIZE) or self:CheckFlag(key, C.ME_ONLY_EMPHASIZE)) and amount >= noEmphUntil
 			if self:CheckFlag(key, C.MESSAGE) or isEmphasized then
-				self:SendMessage("BigWigs_Message", self, key, format(CL.stackyou, amount, textType == "string" and text or spells[text or key]), "blue", icon ~= false and icons[icon or key], isEmphasized)
+				self:SendMessage("BigWigs_Message", self, key, format(CL.stackyou, amount, msg), "blue", icon ~= false and icons[icon or key], isEmphasized)
 			end
 		elseif not self:CheckFlag(key, C.ME_ONLY) then
 			local isEmphasized = self:CheckFlag(key, C.EMPHASIZE) and amount >= noEmphUntil
 			if self:CheckFlag(key, C.MESSAGE) or isEmphasized then
-				self:SendMessage("BigWigs_Message", self, key, format(CL.stack, amount, textType == "string" and text or spells[text or key], self:ColorName(player)), color, icon ~= false and icons[icon or key], isEmphasized)
+				self:SendMessage("BigWigs_Message", self, key, format(CL.stack, amount, msg, self:ColorName(player)), color, icon ~= false and icons[icon or key], isEmphasized)
 			end
 		end
 	end
@@ -3460,8 +3476,12 @@ do
 	local function printTargets(self, key, playerTable, color, text, icon)
 		local playersInTable = #playerTable
 		if playersInTable > 0 and (not playerTable.prevPlayersInTable or playerTable.prevPlayersInTable < playersInTable) then
-			local textType = type(text)
-			local msg = textType == "string" and text or spells[text or key]
+			local msg
+			if not text and self:IsRenameAvailable(key) then
+				msg = self:GetRename(key, 1)
+			else
+				msg = type(text) == "string" and text or spells[text or key]
+			end
 			local texture = icon ~= false and icons[icon or key]
 			local previousAmount = playerTable.prevPlayersInTable or 0
 			if playersInTable-previousAmount == 1 and playerTable[playersInTable] == myName then
@@ -3521,8 +3541,12 @@ do
 				if playerTable[playersInTable] == myName then
 					local isEmphasized = self:CheckFlag(key, C.EMPHASIZE) or self:CheckFlag(key, C.ME_ONLY_EMPHASIZE)
 					if self:CheckFlag(key, C.MESSAGE) or isEmphasized then
-						local textType = type(text)
-						local msg = textType == "string" and text or spells[text or key]
+						local msg
+						if not text and self:IsRenameAvailable(key) then
+							msg = self:GetRename(key, 1)
+						else
+							msg = type(text) == "string" and text or spells[text or key]
+						end
 						local texture = icon ~= false and icons[icon or key]
 						local marker = playerTable[myName]
 						if marker then
@@ -3534,8 +3558,12 @@ do
 				end
 			else
 				if playerTable[playersInTable] == myName and self:CheckFlag(key, C.ME_ONLY_EMPHASIZE) then
-					local textType = type(text)
-					local msg = textType == "string" and text or spells[text or key]
+					local msg
+					if not text and self:IsRenameAvailable(key) then
+						msg = self:GetRename(key, 1)
+					else
+						msg = type(text) == "string" and text or spells[text or key]
+					end
 					local texture = icon ~= false and icons[icon or key]
 					local marker = playerTable[myName]
 					if marker then
@@ -3565,8 +3593,12 @@ end
 -- @param[opt] icon the message icon (spell id or texture name, key is used if nil)
 function boss:TargetMessage(key, color, player, text, icon)
 	if self:CanPassRoleRestrictions(key) then
-		local textType = type(text)
-		local msg = textType == "string" and text or spells[text or key]
+		local msg
+		if not text and self:IsRenameAvailable(key) then
+			msg = self:GetRename(key, 1)
+		else
+			msg = type(text) == "string" and text or spells[text or key]
+		end
 		local texture = icon ~= false and icons[icon or key]
 		if not player then
 			local isEmphasized = self:CheckFlag(key, C.EMPHASIZE)
@@ -3642,7 +3674,13 @@ do
 					player = classColor:WrapTextInColorCode(player)
 				end
 			end
-			self:Message(key, color, CL.other:format(text or self:SpellName(key), player), icon)
+			local msg
+			if not text and self:IsRenameAvailable(key) then
+				msg = self:GetRename(key, 1)
+			else
+				msg = text or self:SpellName(key)
+			end
+			self:Message(key, color, CL.other:format(msg, player), icon)
 		end)
 	end
 end
@@ -3677,7 +3715,12 @@ function boss:PersonalMessageFromBlizzMessage(key, duration, localeString, text,
 					self:SendMessage("BigWigs_Message", self, key, infoTable.text, "blue", iconToUse, isEmphasized)
 				else
 					local str = localeString and CL[localeString] or CL.you
-					local msg = localeString == false and text or format(str, type(text) == "string" and text or spells[text or key])
+					local msg
+					if not text and self:IsRenameAvailable(key) then
+						msg = localeString == false and self:GetRename(key, 1) or format(str, self:GetRename(key, 1))
+					else
+						msg = localeString == false and text or format(str, type(text) == "string" and text or spells[text or key])
+					end
 					self:SendMessage("BigWigs_Message", self, key, msg, "blue", icon ~= false and icons[icon or key], isEmphasized)
 				end
 			end)
