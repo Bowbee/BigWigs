@@ -12,14 +12,13 @@ mod:SetWorldModule(true)
 -- Localization
 --
 
-local L = mod:GetLocale()
-if L then
-	L.ball = "Ball"
-	L.ball_incoming = "Ball Incoming - Don't let it touch the ground"
-	L.ball_fail = "FAIL - Ball touched the ground"
-	L.tendrils = "Tendrils"
-	L.tendrils_incoming = "RUN AWAY to snap tendrils"
-end
+local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
+	ball = "Ball",
+	ball_incoming = "Ball Incoming - Don't let it touch the ground",
+	ball_fail = "FAIL - Ball touched the ground",
+	tendrils = "Tendrils",
+	tendrils_incoming = "RUN AWAY to snap tendrils",
+})
 
 --------------------------------------------------------------------------------
 -- Initialization
