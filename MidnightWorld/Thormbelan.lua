@@ -21,6 +21,16 @@ local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 })
 
 --------------------------------------------------------------------------------
+-- Renames
+--
+
+mod:SetRenames({
+	[1257325] = {CL.bombs, CL.incoming:format(CL.bombs), notes = {CL.timerNote, CL.messageNote}}, -- Radiant Mote (Bombs)
+	[1257825] = {L.ball, L.ball_incoming, L.ball_fail, notes = {CL.timerNote, CL.messageNote, CL.messageNote}}, -- Scintillating Shard (Ball)
+	[1258641] = {L.tendrils, L.tendrils_incoming, notes = {CL.timerNote, CL.messageNote}}, -- Shredding Tendrils (Tendrils)
+})
+
+--------------------------------------------------------------------------------
 -- Initialization
 --
 
@@ -29,10 +39,6 @@ function mod:GetOptions()
 		1257325, -- Radiant Mote
 		1257825, -- Scintillating Shard
 		{1258641, "ME_ONLY_EMPHASIZE"}, -- Shredding Tendrils
-	},nil,{
-		[1257325] = CL.bombs, -- Radiant Mote (Bombs)
-		[1257825] = L.ball, -- Scintillating Shard (Ball)
-		[1258641] = L.tendrils, -- Shredding Tendrils (Tendrils)
 	}
 end
 
@@ -50,9 +56,9 @@ function mod:OnEncounterStart()
 
 	self:BlockBossEmotes()
 
-	self:CDBar(1257825, 14.3, L.ball) -- Scintillating Shard
-	self:CDBar(1257325, 20.5, CL.bombs) -- Radiant Mote
-	self:CDBar(1258641, 44.8, L.tendrils) -- Shredding Tendrils
+	self:CDBar(1257825, 14.3) -- Scintillating Shard
+	self:CDBar(1257325, 20.5) -- Radiant Mote
+	self:CDBar(1258641, 44.8) -- Shredding Tendrils
 end
 
 --------------------------------------------------------------------------------
@@ -67,22 +73,22 @@ end
 
 function mod:RAID_BOSS_EMOTE(_, msg)
 	if msg:find("1257325", nil, true) then -- Radiant Mote
-		self:Message(1257325, "orange", CL.incoming:format(CL.bombs))
-		self:CDBar(1257325, 33.6, CL.bombs)
+		self:Message(1257325, "orange", self:GetRename(1257325, 2))
+		self:CDBar(1257325, 33.6)
 	elseif msg:find("1257825", nil, true) then -- Scintillating Shard
-		self:Message(1257825, "yellow", L.ball_incoming)
-		self:CDBar(1257825, 59.1, L.ball)
+		self:Message(1257825, "yellow", self:GetRename(1257825, 2))
+		self:CDBar(1257825, 59.1)
 		self:PlaySound(1257825, "long")
 	elseif msg:find("1258641", nil, true) then -- Shredding Tendrils
-		self:Message(1258641, "red", L.tendrils_incoming)
-		self:CDBar(1258641, 69.1, L.tendrils)
+		self:Message(1258641, "red", self:GetRename(1258641, 2))
+		self:CDBar(1258641, 69.1)
 		self:PlaySound(1258641, "info")
 	end
 end
 
 function mod:CHAT_MSG_MONSTER_EMOTE(_, _, source)
 	if source == self.displayName then -- The Scintillating Shard shatters on contact with the ground.#Thorm'belan
-		self:Message(1257825, "red", L.ball_fail)
+		self:Message(1257825, "red", self:GetRename(1257825, 3))
 		self:PlaySound(1257825, "long")
 	end
 end
@@ -98,7 +104,7 @@ do
 			end
 
 			playerList[#playerList+1] = player
-			self:TargetsMessage(1258641, "orange", playerList, nil, L.tendrils)
+			self:TargetsMessage(1258641, "orange", playerList)
 			if player == self:UnitName("player") then
 				self:PlaySound(1258641, "warning", nil, player)
 			end
