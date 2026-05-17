@@ -328,6 +328,12 @@ function mod:TimersMythic(_, eventInfo)
 		end
 	end
 
+	if not barInfo and self:IsBeforeRadiantBarrier(eventInfo.duration, 5) then
+		if durationRounded <= 25 or durationRounded >= 15 then -- Valwing Fallback
+			barInfo = self:Vaelwing(eventInfo)
+		end
+	end
+
 	if barInfo then
 		activeBars[eventInfo.id] = barInfo
 	elseif self:ShouldShowBars() and not self:IsWiping() then
@@ -451,6 +457,12 @@ function mod:TimersHeroic(_, eventInfo)
 	else -- Intermissions
 		if durationRounded == 8 then -- Midnight Flames
 			barInfo = self:MidnightFlames(eventInfo)
+		end
+	end
+
+	if not barInfo and stage == 3 then
+		if durationRounded == 25 or duratioRounded == 31 then -- Rakfang fallback
+			barInfo = self:Rakfang(eventInfo)
 		end
 	end
 
