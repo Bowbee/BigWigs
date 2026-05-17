@@ -204,6 +204,7 @@ L.timerNote = "此文本将用于计时条"
 L.messageNote = "此文本将用于消息提示"
 L.messageOnYouNote = "当该技能点名你时显示的消息"
 L.timerOnYouNote = "当该技能点名你时计时条中显示的文本"
+--L.thisOnly = "%s Only" -- When we want to show that an ability is restricted e.g. "Stage 1 Only" or "Stage 2 Only" or "Intermission Only"
 
 -- Common ability name replacements
 L.absorb = "吸收盾" -- Used for shield-like abilities that absorb damage or healing
@@ -263,6 +264,7 @@ L.fixate = "锁定" -- Used when a boss or add is chasing/fixated on a player
 L.fixates = "锁定" -- Plural of L.fixate
 L.group_damage = "群体伤害" -- Any ability that causes damage to every player in the 5 player group 也可以称“AOE”
 L.health_drain = "吸血" -- Any ability that drains health from the player
+L.madness = "疯狂" -- Any ability that contains the word "Madness" in it e.g. "Rift Madness" (1264756) or "Burning Madness" (307013)
 L.parasite = "寄生" -- Any ability where a parasite is involved e.g. "Parasitic Infection", "Parasitic Growth", etc
 L.parasites = "寄生" -- Plural of L.parasite
 L.pull_in = "拉扯" -- An ability that pulls you in towards the boss against your will

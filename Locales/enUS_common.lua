@@ -203,6 +203,7 @@ L.timerNote = "This text will be used for timers"
 L.messageNote = "This text will be used for messages"
 L.messageOnYouNote = "The message shown when this ability is on you"
 L.timerOnYouNote = "The text shown in the timer when this ability is on you"
+L.thisOnly = "%s Only" -- When we want to show that an ability is restricted e.g. "Stage 1 Only" or "Stage 2 Only" or "Intermission Only"
 
 -- Common ability name replacements
 L.absorb = "Absorb" -- Used for shield-like abilities that absorb damage or healing
@@ -262,6 +263,7 @@ L.fixate = "Fixate" -- Used when a boss or add is chasing/fixated on a player
 L.fixates = "Fixates" -- Plural of L.fixate
 L.group_damage = "Group Damage" -- Any ability that causes damage to every player in the 5 player group
 L.health_drain = "Health Drain" -- Any ability that drains health from the player
+L.madness = "Madness" -- Any ability that contains the word "Madness" in it e.g. "Rift Madness" (1264756) or "Burning Madness" (307013)
 L.parasite = "Parasite" -- Any ability where a parasite is involved e.g. "Parasitic Infection", "Parasitic Growth", etc
 L.parasites = "Parasites" -- Plural of L.parasite
 L.pull_in = "Pull In" -- An ability that pulls you in towards the boss against your will

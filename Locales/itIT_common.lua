@@ -204,6 +204,7 @@ L.autotalk_generic_desc = "Automaticamente selezione l'opzione di dialogo NPC ch
 --L.messageNote = "This text will be used for messages"
 --L.messageOnYouNote = "The message shown when this ability is on you"
 --L.timerOnYouNote = "The text shown in the timer when this ability is on you"
+--L.thisOnly = "%s Only" -- When we want to show that an ability is restricted e.g. "Stage 1 Only" or "Stage 2 Only" or "Intermission Only"
 
 -- Common ability name replacements
 L.absorb = "Assorbimento" -- Used for shield-like abilities that absorb damage or healing
@@ -263,6 +264,7 @@ L.fixate = "Ossessione" -- Used when a boss or add is chasing/fixated on a playe
 L.fixates = "Fissato" -- Plural of L.fixate
 L.group_damage = "Danno Gruppo" -- Any ability that causes damage to every player in the 5 player group
 L.health_drain = "Risucchio di Salute" -- Any ability that drains health from the player
+L.madness = "Follia" -- Any ability that contains the word "Madness" in it e.g. "Rift Madness" (1264756) or "Burning Madness" (307013)
 L.parasite = "Parassita" -- Any ability where a parasite is involved e.g. "Parasitic Infection", "Parasitic Growth", etc
 L.parasites = "Parasite" -- Plural of L.parasite
 L.pull_in = "Trascinato Dentro" -- An ability that pulls you in towards the boss against your will

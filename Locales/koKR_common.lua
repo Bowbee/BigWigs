@@ -204,6 +204,7 @@ L.timerNote = "이 텍스트는 타이머에 사용됨"
 L.messageNote = "이 텍스트는 메시지에 사용됨"
 L.messageOnYouNote = "이 능력이 본인에게 적용되었을 때 표시되는 메시지"
 L.timerOnYouNote = "이 능력이 본인에게 적용되었을 때 타이머에 표시되는 텍스트"
+--L.thisOnly = "%s Only" -- When we want to show that an ability is restricted e.g. "Stage 1 Only" or "Stage 2 Only" or "Intermission Only"
 
 -- Common ability name replacements
 L.absorb = "흡수" -- Used for shield-like abilities that absorb damage or healing
@@ -263,6 +264,7 @@ L.fixate = "시선 고정" -- Used when a boss or add is chasing/fixated on a pl
 L.fixates = "시선 고정" -- Plural of L.fixate
 L.group_damage = "파티 피해" -- Any ability that causes damage to every player in the 5 player group
 L.health_drain = "생명력 흡수" -- Any ability that drains health from the player
+L.madness = "광기" -- Any ability that contains the word "Madness" in it e.g. "Rift Madness" (1264756) or "Burning Madness" (307013)
 L.parasite = "기생충" -- Any ability where a parasite is involved e.g. "Parasitic Infection", "Parasitic Growth", etc
 L.parasites = "기생충" -- Plural of L.parasite
 L.pull_in = "끌어당김" -- An ability that pulls you in towards the boss against your will

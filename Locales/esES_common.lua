@@ -204,6 +204,7 @@ L.autotalk_notice = "Interactuando automáticamente con el NPC %s."
 --L.messageNote = "This text will be used for messages"
 --L.messageOnYouNote = "The message shown when this ability is on you"
 --L.timerOnYouNote = "The text shown in the timer when this ability is on you"
+--L.thisOnly = "%s Only" -- When we want to show that an ability is restricted e.g. "Stage 1 Only" or "Stage 2 Only" or "Intermission Only"
 
 -- Common ability name replacements
 L.absorb = "Absorber" -- Used for shield-like abilities that absorb damage or healing
@@ -263,6 +264,7 @@ L.fixate = "Fijar" -- Used when a boss or add is chasing/fixated on a player
 L.fixates = "Fijaciones" -- Plural of L.fixate
 L.group_damage = "Daño grupal" -- Any ability that causes damage to every player in the 5 player group
 L.health_drain = "Absorción de salud" -- Any ability that drains health from the player
+L.madness = "Locura" -- Any ability that contains the word "Madness" in it e.g. "Rift Madness" (1264756) or "Burning Madness" (307013)
 L.parasite = "Parásito" -- Any ability where a parasite is involved e.g. "Parasitic Infection", "Parasitic Growth", etc
 L.parasites = "Parásitos" -- Plural of L.parasite
 L.pull_in = "Atraer" -- An ability that pulls you in towards the boss against your will
