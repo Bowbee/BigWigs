@@ -461,7 +461,7 @@ function mod:TimersHeroic(_, eventInfo)
 	end
 
 	if not barInfo and stage == 3 then
-		if durationRounded == 25 or duratioRounded == 31 then -- Rakfang fallback
+		if durationRounded == 25 or durationRounded == 31 then -- Rakfang fallback
 			barInfo = self:Rakfang(eventInfo)
 		end
 	end
