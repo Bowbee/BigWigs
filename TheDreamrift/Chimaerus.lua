@@ -75,7 +75,7 @@ function mod:GetOptions()
 		1245396, -- Consume
 		-- Stage Two: To The Skies
 		1245486, -- Corrupted Devastation
-		{1245406, "CASTBAR_COUNTDOWN"}, -- Ravenous Dive
+		{1245406, "CASTBAR", "CASTBAR_COUNTDOWN"}, -- Ravenous Dive
 		{1246621, "HEALER"}, -- Caustic Phlegm
 		1257085, -- Consuming Miasma
 		-- Mythic
