@@ -4222,6 +4222,7 @@ function boss:StopBar(text, player)
 		self:SendMessage("BigWigs_StopBar", self, msg)
 		self:SendMessage("BigWigs_StopCountdown", self, msg)
 	end
+	self:Debug(":StopBar", msg, player)
 end
 
 --- Stop a cast bar.
