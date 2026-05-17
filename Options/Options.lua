@@ -1920,7 +1920,9 @@ do
 
 				for k, v in next, loader.currentExpansion.zones do -- Parse current content zones
 					local zoneName = GetRealZoneText(k)
-					if not zoneToId[zoneName] and not loader.usingBigWigsRepo then -- If we have no registered menus for current content, and not using the Git repo
+					if zoneName == "" then
+						BigWigs:Error(("Zone ID %q has no name."):format(k))
+					elseif not zoneToId[zoneName] and not loader.usingBigWigsRepo then -- If we have no registered menus for current content, and not using the Git repo
 						alphabeticalZoneList[#alphabeticalZoneList+1] = zoneName -- We want to create sub menus in the GUI for disabled/missing BigWigs current content addons
 						zoneToId[zoneName] = {k, v}
 					end
