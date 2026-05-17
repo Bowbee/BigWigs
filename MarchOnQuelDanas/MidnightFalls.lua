@@ -88,9 +88,6 @@ local L = mod:SetDefaultLocale({ -- SetOption:skip-locale
 	custom_select_limit_warnings_value3 = "Show warnings for both sides.",
 	custom_select_limit_warnings_value4 = "Show warnings for left side only.",
 	custom_select_limit_warnings_value5 = "Show warnings for right side only.",
-
-	dark_quasar_stage1_note = "Stage 1 Only",
-	dark_quasar_intermission_note = "Intermission Only",
 })
 
 --------------------------------------------------------------------------------
@@ -169,8 +166,8 @@ function mod:GetOptions()
 		[1284525] = -33638, -- Stage Two: The Dark Reactor
 		[1250898] = -33639, -- Stage Three: Midnight Falls
 	},{
-		[1279420] = L.dark_quasar_stage1_note,
-		[1282469] = L.dark_quasar_intermission_note,
+		[1279420] = CL.thisOnly:format(CL.stage:format(1)),
+		[1282469] = CL.thisOnly:format(CL.intermission),
 	}
 end
 

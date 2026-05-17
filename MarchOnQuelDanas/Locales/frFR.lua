@@ -24,7 +24,4 @@ BigWigsAPI.SetBossModuleLocale("Midnight Falls", {
 	custom_select_limit_warnings_value3 = "Afficher les avertissements des deux côtés.",
 	custom_select_limit_warnings_value4 = "N'afficher que les avertissements du côté gauche.",
 	custom_select_limit_warnings_value5 = "N'afficher que les avertissements du côté droit.",
-
-	--dark_quasar_stage1_note = "Stage 1 Only",
-	--dark_quasar_intermission_note = "Intermission Only",
 })
