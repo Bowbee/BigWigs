@@ -1553,9 +1553,10 @@ local function parse(file, relative_path)
 		if string.match(file_name, "%.lua$") then
 			local options_file = string.match(file_name, "!Options.*%.lua$") -- matches !Options.lua or !Options_Vanilla.lua, etc
 			if options_file then
-				if options_path then
-					error(string.format("    %s: Multiple !Options paths found!", options_path))
-					error(string.format("    %s: Multiple !Options paths found!", file_name:match(".*/")))
+				if options_file_name then
+					error("Multiple !Options paths found:")
+					error(string.format("    %s", (options_path or "/")..options_file_name))
+					error(string.format("    %s", (file_name:match(".*/") or "/")..options_file))
 				end
 				-- if a file has defined a path to a specific !Options file, save it to write to later
 				options_file_name = options_file
