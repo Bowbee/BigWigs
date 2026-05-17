@@ -4191,8 +4191,14 @@ do
 			time = length
 		end
 		local textType = type(text)
-		local rawText = textType == "string" and text or spells[text or key]
-		local msg = format(CL.cast, rawText)
+		local msg, rawText
+		if textType == "number" and text < 10 and self:IsRenameAvailable(key) then
+			rawText = self:GetRename(key, text)
+			msg = rawText
+		else
+			rawText = textType == "string" and text or spells[text or key]
+			msg = format(CL.cast, rawText)
+		end
 		local isBarEnabled = checkFlag(self, key, C.CASTBAR)
 		if isBarEnabled then
 			self:SendMessage("BigWigs_StartBar", self, key, msg, time, icons[icon or textType == "number" and text or key], false, maxTime, nil, eventId)
