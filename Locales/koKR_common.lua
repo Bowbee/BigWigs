@@ -197,9 +197,13 @@ L.autotalk_boss_desc = "보스 전투 시작 NPC 대화를 자동 선택합니�
 L.autotalk_generic_desc = "던전 다음 단계 진행에 필요한 NPC 대화를 자동 선택합니다."
 L.autotalk_notice = "NPC %s와 자동으로 상호 작용합니다."
 
--- GUI notes
+-- GUI notes for renames
 L.singular = "단수"
 L.plural = "복수"
+--L.timerNote = "This text will be used for timers"
+--L.messageNote = "This text will be used for messages"
+--L.messageOnYouNote = "The message shown when this ability is on you"
+--L.timerOnYouNote = "The text shown in the timer when this ability is on you"
 
 -- Common ability name replacements
 L.absorb = "흡수" -- Used for shield-like abilities that absorb damage or healing

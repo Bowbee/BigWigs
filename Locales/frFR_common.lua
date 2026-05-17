@@ -198,9 +198,13 @@ L.autotalk_boss_desc = "Sélectionne automatiquement le dialogue avec le PNJ qui
 L.autotalk_generic_desc = "Sélectionne automatiquement le dialogue avec le PNJ qui vous fait progresser à la prochaine étape du donjon."
 L.autotalk_notice = "Interaction automatique avec le PNJ %s."
 
--- GUI notes
+-- GUI notes for renames
 L.singular = "Singulier"
 L.plural = "Pluriel"
+--L.timerNote = "This text will be used for timers"
+--L.messageNote = "This text will be used for messages"
+--L.messageOnYouNote = "The message shown when this ability is on you"
+--L.timerOnYouNote = "The text shown in the timer when this ability is on you"
 
 -- Common ability name replacements
 L.absorb = "Absorbe" -- Used for shield-like abilities that absorb damage or healing

@@ -197,9 +197,13 @@ L.autotalk_boss_desc = "Автоматический выбирать вариа
 L.autotalk_generic_desc = "Автоматический выбирать вариант диалога с НПЦ для продвижения по подземелью."
 L.autotalk_notice = "Произведено автоматическое взаидействовие с НПЦ %s."
 
--- GUI notes
+-- GUI notes for renames
 L.singular = "Единственное число"
 L.plural = "Множественное число"
+--L.timerNote = "This text will be used for timers"
+--L.messageNote = "This text will be used for messages"
+--L.messageOnYouNote = "The message shown when this ability is on you"
+--L.timerOnYouNote = "The text shown in the timer when this ability is on you"
 
 -- Common ability name replacements
 L.absorb = "Поглoщ." -- Used for shield-like abilities that absorb damage or healing

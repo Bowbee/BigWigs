@@ -197,9 +197,13 @@ L.autotalk_boss_desc = "Seleciona automaticamente as opções de diálogo do NPC
 L.autotalk_generic_desc = "Seleciona automaticamente as opções de diálogo do NPC que permitem você progredir para o próximo estágio da masmorra."
 L.autotalk_notice = "Interagindo automaticamente com NPC %s."
 
--- GUI notes
+-- GUI notes for renames
 --L.singular = "Singular"
 --L.plural = "Plural"
+--L.timerNote = "This text will be used for timers"
+--L.messageNote = "This text will be used for messages"
+--L.messageOnYouNote = "The message shown when this ability is on you"
+--L.timerOnYouNote = "The text shown in the timer when this ability is on you"
 
 -- Common ability name replacements
 L.absorb = "Absorver" -- Used for shield-like abilities that absorb damage or healing
